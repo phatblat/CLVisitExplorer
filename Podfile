@@ -3,7 +3,7 @@ platform :ios, '9.0'
 target 'CLVisitExplorer' do
   use_frameworks!
 
-  # Pods for CLVisitExplorer
+  pod 'RealmSwift'
 
   target 'CLVisitExplorerTests' do
     inherit! :search_paths
