@@ -21,6 +21,10 @@ class LocationManager: NSObject {
         return enabled
     }
 
+//    private var visitMonitoringAvailable: Bool {
+//        return CLLocationManager.startMonitoringVisits
+//    }
+
     deinit {
         clManager.delegate = nil
     }
@@ -45,17 +49,29 @@ extension LocationManager {
     }
 
     /// Starts up continuous location updates.
-    func start() {
+    func startLocationUpdates() {
         guard locationServicesEnabled else { return }
         clManager.startUpdatingLocation()
         debugPrint("Location updates started")
     }
 
     /// Discontinues continuous location updates.
-    func stop() {
+    func stopLocationUpdates() {
         guard locationServicesEnabled else { return }
         clManager.stopUpdatingLocation()
         debugPrint("Location updates stopped")
+    }
+
+    /// Starts up visit monitoring.
+    func startVisitUpdates() {
+        clManager.startMonitoringVisits()
+        debugPrint("Visit monitoring started")
+    }
+
+    /// Stops visit monitoring.
+    func stopVisitUpdates() {
+        clManager.stopMonitoringVisits()
+        debugPrint("Visit monitoring stopped")
     }
 }
 
@@ -77,5 +93,10 @@ extension LocationManager: CLLocationManagerDelegate {
     /// Location updates delivered here
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         debugPrint("didUpdateLocations", locations)
+    }
+
+    /// Interesting location visits are delivered here.
+    func locationManager(_ manager: CLLocationManager, didVisit visit: CLVisit) {
+        debugPrint("didVisit", visit)
     }
 }

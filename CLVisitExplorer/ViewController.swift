@@ -10,7 +10,8 @@ import UIKit
 
 // MARK: - Storage
 class ViewController: UIViewController {
-    @IBOutlet private var startStopButton: UIButton!
+    @IBOutlet private var startStopLocationButton: UIButton!
+    @IBOutlet private var startStopVisitsButton: UIButton!
 
     /// Indicates whether location updates are currently being delivered.
     private var monitoringLocation = false { didSet {
@@ -18,20 +19,33 @@ class ViewController: UIViewController {
         defaults.set(monitoringLocation, forKey: Defaults.monitoringLocation.rawValue)
     } }
 
+    /// Indicates whether visits are currently being delivered.
+    private var monitoringVisits = false { didSet {
+        guard monitoringVisits != oldValue else { return }
+        defaults.set(monitoringVisits, forKey: Defaults.monitoringVisits.rawValue)
+    } }
+
     private var defaults: UserDefaults { return UserDefaults.standard() }
 }
 
 private enum Defaults: String {
-    case monitoringLocation
+    case monitoringLocation, monitoringVisits
 }
 
 // MARK: - IBAction
 extension ViewController {
-    @IBAction func startStopButton(_ sender: UIButton) {
+    @IBAction func didTapLocationButton(_ sender: UIButton) {
         monitoringLocation = !monitoringLocation
         debugPrint("startStopButton, monitoringLocation", monitoringLocation)
         toggleLocationMonitoring()
-        toggleStartStopButton()
+        toggleLocationButton()
+    }
+
+    @IBAction func didTapVisitsButton(_ sender: UIButton) {
+        monitoringVisits = !monitoringVisits
+        debugPrint("startStopButton, monitoringVisits", monitoringVisits)
+        toggleVisitMonitoring()
+        toggleVisitsButton()
     }
 }
 
@@ -40,6 +54,7 @@ extension ViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         monitoringLocation = defaults.bool(forKey: Defaults.monitoringLocation.rawValue)
+        monitoringVisits = defaults.bool(forKey: Defaults.monitoringVisits.rawValue)
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -52,21 +67,29 @@ extension ViewController {
 private extension ViewController {
     /// Starts or stops location updates depending on the current monitoringLocation value.
     private func toggleLocationMonitoring() {
-        if monitoringLocation {
-            LocationManager.shared.start()
-        } else {
-            LocationManager.shared.stop()
-        }
+        monitoringLocation
+            ? LocationManager.shared.startLocationUpdates()
+            : LocationManager.shared.stopLocationUpdates()
     }
 
-    /// Updates the buttons display depending on the current monitoringLocation value.
-    private func toggleStartStopButton() {
-        var title: String
-        if monitoringLocation {
-            title = "Stop Monitoring Location"
-        } else {
-            title = "Start Monitoring Location"
-        }
-        startStopButton.setTitle(title, for: [])
+    private func toggleVisitMonitoring() {
+        monitoringVisits
+            ? LocationManager.shared.startVisitUpdates()
+            : LocationManager.shared.stopVisitUpdates()
+    }
+
+    /// Updates the location button display depending on the current monitoringLocation value.
+    private func toggleLocationButton() {
+        let title = monitoringLocation
+            ? "Stop Monitoring Location"
+            : "Start Monitoring Location"
+        startStopLocationButton.setTitle(title, for: [])
+    }
+
+    private func toggleVisitsButton() {
+        let title = monitoringVisits
+            ? "Stop Monitoring Visits"
+            : "Start Monitoring Visits"
+        startStopVisitsButton.setTitle(title, for: [])
     }
 }
