@@ -21,11 +21,20 @@ class LocationManager: NSObject {
         return enabled
     }
 
-//    private var visitMonitoringAvailable: Bool {
-//        return CLLocationManager.startMonitoringVisits
-//    }
-
+    /// Convenience property for standard UserDefaults.
     private var defaults: UserDefaults { return UserDefaults.standard() }
+
+    /// Indicates whether location updates are currently being delivered.
+    var monitoringLocation = false { didSet {
+        guard monitoringLocation != oldValue else { return }
+        defaults.set(monitoringLocation, forKey: Defaults.monitoringLocation.rawValue)
+    } }
+
+    /// Indicates whether visits are currently being delivered.
+    var monitoringVisits = false { didSet {
+        guard monitoringVisits != oldValue else { return }
+        defaults.set(monitoringVisits, forKey: Defaults.monitoringVisits.rawValue)
+    } }
 
     deinit {
         clManager.delegate = nil
@@ -38,19 +47,14 @@ class LocationManager: NSObject {
         clManager.desiredAccuracy = kCLLocationAccuracyKilometer
         clManager.distanceFilter = 50
         clManager.pausesLocationUpdatesAutomatically = true
+
+        monitoringLocation = defaults.bool(forKey: Defaults.monitoringLocation.rawValue)
+        monitoringVisits = defaults.bool(forKey: Defaults.monitoringVisits.rawValue)
     }
 }
 
 // MARK: - Internal API
 extension LocationManager {
-    var monitoringLocation: Bool {
-        return defaults.bool(forKey: Defaults.monitoringLocation.rawValue)
-    }
-
-    var monitoringVisits: Bool {
-        return defaults.bool(forKey: Defaults.monitoringVisits.rawValue)
-    }
-
     /// Requests permission to use the user's location
     func requestPermission() {
         guard locationServicesEnabled else { return }
@@ -69,6 +73,7 @@ extension LocationManager {
     func startLocationUpdates() {
         guard locationServicesEnabled else { return }
         clManager.startUpdatingLocation()
+        monitoringLocation = true
         debugPrint("Location updates started")
     }
 
@@ -76,18 +81,23 @@ extension LocationManager {
     func stopLocationUpdates() {
         guard locationServicesEnabled else { return }
         clManager.stopUpdatingLocation()
+        monitoringLocation = false
         debugPrint("Location updates stopped")
     }
 
     /// Starts up visit monitoring.
     func startVisitUpdates() {
+        guard locationServicesEnabled else { return }
         clManager.startMonitoringVisits()
+        monitoringVisits = true
         debugPrint("Visit monitoring started")
     }
 
     /// Stops visit monitoring.
     func stopVisitUpdates() {
+        guard locationServicesEnabled else { return }
         clManager.stopMonitoringVisits()
+        monitoringVisits = false
         debugPrint("Visit monitoring stopped")
     }
 }

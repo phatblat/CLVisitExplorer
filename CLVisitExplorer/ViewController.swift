@@ -14,31 +14,21 @@ class ViewController: UIViewController {
     @IBOutlet private var startStopVisitsButton: UIButton!
 
     /// Indicates whether location updates are currently being delivered.
-    private var monitoringLocation = false { didSet {
-        guard monitoringLocation != oldValue else { return }
-        defaults.set(monitoringLocation, forKey: Defaults.monitoringLocation.rawValue)
-    } }
+    private var monitoringLocation: Bool { return LocationManager.shared.monitoringLocation }
 
     /// Indicates whether visits are currently being delivered.
-    private var monitoringVisits = false { didSet {
-        guard monitoringVisits != oldValue else { return }
-        defaults.set(monitoringVisits, forKey: Defaults.monitoringVisits.rawValue)
-    } }
-
-    private var defaults: UserDefaults { return UserDefaults.standard() }
+    private var monitoringVisits: Bool { return LocationManager.shared.monitoringVisits }
 }
 
 // MARK: - IBAction
 extension ViewController {
     @IBAction func didTapLocationButton(_ sender: UIButton) {
-        monitoringLocation = !monitoringLocation
         debugPrint("startStopButton, monitoringLocation", monitoringLocation)
         toggleLocationMonitoring()
         toggleLocationButton()
     }
 
     @IBAction func didTapVisitsButton(_ sender: UIButton) {
-        monitoringVisits = !monitoringVisits
         debugPrint("startStopButton, monitoringVisits", monitoringVisits)
         toggleVisitMonitoring()
         toggleVisitsButton()
@@ -49,8 +39,6 @@ extension ViewController {
 extension ViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
-        monitoringLocation = defaults.bool(forKey: Defaults.monitoringLocation.rawValue)
-        monitoringVisits = defaults.bool(forKey: Defaults.monitoringVisits.rawValue)
     }
 
     override func viewDidAppear(_ animated: Bool) {
