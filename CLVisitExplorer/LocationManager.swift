@@ -28,6 +28,10 @@ class LocationManager: NSObject {
     override init() {
         super.init()
         clManager.delegate = self
+        clManager.activityType = .fitness
+        clManager.desiredAccuracy = kCLLocationAccuracyKilometer
+        clManager.distanceFilter = 50
+        clManager.pausesLocationUpdatesAutomatically = true
     }
 }
 
