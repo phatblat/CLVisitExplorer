@@ -3,7 +3,7 @@ platform :ios, '9.0'
 target 'CLVisitExplorer' do
   use_frameworks!
 
-  pod 'RealmSwift'
+  #pod 'RealmSwift', :git => 'https://github.com/realm/realm-cocoa.git'
 
   target 'CLVisitExplorerTests' do
     inherit! :search_paths
