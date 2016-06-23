@@ -39,6 +39,9 @@ extension ViewController {
 extension ViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        if monitoringLocation { toggleLocationButton() }
+        if monitoringVisits { toggleVisitsButton() }
     }
 
     override func viewDidAppear(_ animated: Bool) {
