@@ -18,8 +18,8 @@ extension AppDelegate: UIApplicationDelegate {
 
         if let options = launchOptions where options[UIApplicationLaunchOptionsLocationKey] != nil {
             debugPrint("App was launched in response to an incoming location event")
-            LocationManager.shared.restartLocationServices()
         }
+        LocationManager.shared.restartLocationServices()
 
         return true
     }
