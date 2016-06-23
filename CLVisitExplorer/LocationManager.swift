@@ -59,6 +59,11 @@ extension LocationManager {
 extension LocationManager: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         debugPrint("didChangeAuthorization", status)
+        if status == .authorizedAlways {
+            clManager.allowsBackgroundLocationUpdates = true
+        } else {
+            debugPrint("Can't enable allowsBackgroundLocationUpdates because status was not .authorizedAlways")
+        }
     }
 
     func locationManager(_ manager: CLLocationManager, didFailWithError error: NSError) {
