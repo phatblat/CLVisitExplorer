@@ -244,6 +244,11 @@
 						DevelopmentTeam = MTGSZH8QM4;
 						DevelopmentTeamName = "Log Dash G, LLC";
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					F8BA3B171D1B5C6C0081615B = {
 						CreatedOnToolsVersion = 8.0;
