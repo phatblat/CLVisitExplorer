@@ -10,7 +10,7 @@ import CoreLocation
 
 // MARK: - Storage & Init
 class LocationManager: NSObject {
-    let shared = LocationManager()
+    static let shared = LocationManager()
     private let clManager = CLLocationManager()
 
     deinit {
@@ -24,7 +24,12 @@ class LocationManager: NSObject {
 }
 
 // MARK: - Internal API
-extension LocationManager {}
+extension LocationManager {
+    /// Requests permission to use the user's location
+    func requestPermission() {
+        clManager.requestAlwaysAuthorization()
+    }
+}
 
 // MARK: - CLLocationManagerDelegate
 extension LocationManager: CLLocationManagerDelegate {}
