@@ -13,6 +13,7 @@
 		F8522F891D1B65B6005DE871 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8522F821D1B65B6005DE871 /* Assets.xcassets */; };
 		F8522F8A1D1B65B6005DE871 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8522F831D1B65B6005DE871 /* LaunchScreen.storyboard */; };
 		F8522F8B1D1B65B6005DE871 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8522F851D1B65B6005DE871 /* Main.storyboard */; };
+		F89EB8261D1BA6D0004FD809 /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89EB8251D1BA6D0004FD809 /* Defaults.swift */; };
 		F8AF339A1D1B667C00E96129 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8AF33991D1B667C00E96129 /* LocationManager.swift */; };
 		F8BA3B081D1B5C6C0081615B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BA3B071D1B5C6C0081615B /* AppDelegate.swift */; };
 		F8BA3B0A1D1B5C6C0081615B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BA3B091D1B5C6C0081615B /* ViewController.swift */; };
@@ -50,6 +51,7 @@
 		F8522F821D1B65B6005DE871 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F8522F841D1B65B6005DE871 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F8522F861D1B65B6005DE871 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		F89EB8251D1BA6D0004FD809 /* Defaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
 		F8AF33991D1B667C00E96129 /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		F8BA3B041D1B5C6C0081615B /* CLVisitExplorer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CLVisitExplorer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8BA3B071D1B5C6C0081615B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -150,6 +152,7 @@
 			isa = PBXGroup;
 			children = (
 				F8BA3B071D1B5C6C0081615B /* AppDelegate.swift */,
+				F89EB8251D1BA6D0004FD809 /* Defaults.swift */,
 				F8BA3B131D1B5C6C0081615B /* Info.plist */,
 				F8AF33991D1B667C00E96129 /* LocationManager.swift */,
 				F8522F801D1B65B6005DE871 /* Resources */,
@@ -453,6 +456,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F8BA3B0A1D1B5C6C0081615B /* ViewController.swift in Sources */,
+				F89EB8261D1BA6D0004FD809 /* Defaults.swift in Sources */,
 				F8BA3B081D1B5C6C0081615B /* AppDelegate.swift in Sources */,
 				F8AF339A1D1B667C00E96129 /* LocationManager.swift in Sources */,
 			);

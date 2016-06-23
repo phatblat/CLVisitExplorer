@@ -28,10 +28,6 @@ class ViewController: UIViewController {
     private var defaults: UserDefaults { return UserDefaults.standard() }
 }
 
-private enum Defaults: String {
-    case monitoringLocation, monitoringVisits
-}
-
 // MARK: - IBAction
 extension ViewController {
     @IBAction func didTapLocationButton(_ sender: UIButton) {
