@@ -9,10 +9,18 @@
 import UIKit
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder {
     var window: UIWindow?
+}
 
+extension AppDelegate: UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+
+        if let options = launchOptions where options[UIApplicationLaunchOptionsLocationKey] != nil {
+            debugPrint("App was launched in response to an incoming location event")
+            LocationManager.shared.restartLocationServices()
+        }
+
         return true
     }
 
@@ -25,4 +33,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidBecomeActive(_ application: UIApplication) {}
 
     func applicationWillTerminate(_ application: UIApplication) {}
+}
+
+private extension AppDelegate {
+    private var defaults: UserDefaults { return UserDefaults.standard() }
 }

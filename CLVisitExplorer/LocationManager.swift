@@ -25,6 +25,8 @@ class LocationManager: NSObject {
 //        return CLLocationManager.startMonitoringVisits
 //    }
 
+    private var defaults: UserDefaults { return UserDefaults.standard() }
+
     deinit {
         clManager.delegate = nil
     }
@@ -41,11 +43,26 @@ class LocationManager: NSObject {
 
 // MARK: - Internal API
 extension LocationManager {
+    var monitoringLocation: Bool {
+        return defaults.bool(forKey: Defaults.monitoringLocation.rawValue)
+    }
+
+    var monitoringVisits: Bool {
+        return defaults.bool(forKey: Defaults.monitoringVisits.rawValue)
+    }
+
     /// Requests permission to use the user's location
     func requestPermission() {
         guard locationServicesEnabled else { return }
         clManager.requestAlwaysAuthorization()
         debugPrint("Location permission requested")
+    }
+
+    /// Restarts any active location services. Used when app is launched 
+    /// from an incoming location event.
+    func restartLocationServices() {
+        if monitoringLocation { startLocationUpdates() }
+        if monitoringVisits { startVisitUpdates() }
     }
 
     /// Starts up continuous location updates.
