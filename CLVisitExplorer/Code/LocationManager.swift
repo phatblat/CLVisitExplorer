@@ -42,7 +42,7 @@ class LocationManager: NSObject {
         clManager.delegate = nil
     }
 
-    override init() {
+    private override init() {
         super.init()
         clManager.delegate = self
         clManager.activityType = .fitness
