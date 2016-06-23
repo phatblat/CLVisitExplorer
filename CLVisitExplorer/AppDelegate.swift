@@ -21,6 +21,9 @@ extension AppDelegate: UIApplicationDelegate {
         }
         LocationManager.shared.restartLocationServices()
 
+        let settings = UIUserNotificationSettings(types: [.alert], categories: nil)
+        application.registerUserNotificationSettings(settings)
+
         return true
     }
 
@@ -33,6 +36,14 @@ extension AppDelegate: UIApplicationDelegate {
     func applicationDidBecomeActive(_ application: UIApplication) {}
 
     func applicationWillTerminate(_ application: UIApplication) {}
+
+    func application(_ application: UIApplication, didReceive notification: UILocalNotification) {
+        debugPrint("didReceive", notification)
+    }
+
+    func application(_ application: UIApplication, didRegister notificationSettings: UIUserNotificationSettings) {
+        debugPrint("didRegister", notificationSettings)
+    }
 }
 
 private extension AppDelegate {
