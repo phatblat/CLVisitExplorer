@@ -10,11 +10,11 @@
 		07342CD469928D0F53DC22B0 /* Pods_CLVisitExplorer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9DB99B413C3346AE0C5CBDA /* Pods_CLVisitExplorer.framework */; };
 		E3C5D8398D8CB108C1847CE6 /* Pods_CLVisitExplorerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EA54F9C03E61FED5047682B /* Pods_CLVisitExplorerUITests.framework */; };
 		E81CAA8D758DFD46EF4527B6 /* Pods_CLVisitExplorerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 940601F56194F4CA2124D68C /* Pods_CLVisitExplorerTests.framework */; };
+		F8522F891D1B65B6005DE871 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8522F821D1B65B6005DE871 /* Assets.xcassets */; };
+		F8522F8A1D1B65B6005DE871 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8522F831D1B65B6005DE871 /* LaunchScreen.storyboard */; };
+		F8522F8B1D1B65B6005DE871 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8522F851D1B65B6005DE871 /* Main.storyboard */; };
 		F8BA3B081D1B5C6C0081615B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BA3B071D1B5C6C0081615B /* AppDelegate.swift */; };
 		F8BA3B0A1D1B5C6C0081615B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BA3B091D1B5C6C0081615B /* ViewController.swift */; };
-		F8BA3B0D1D1B5C6C0081615B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8BA3B0B1D1B5C6C0081615B /* Main.storyboard */; };
-		F8BA3B0F1D1B5C6C0081615B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8BA3B0E1D1B5C6C0081615B /* Assets.xcassets */; };
-		F8BA3B121D1B5C6C0081615B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8BA3B101D1B5C6C0081615B /* LaunchScreen.storyboard */; };
 		F8BA3B1D1D1B5C6C0081615B /* CLVisitExplorerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BA3B1C1D1B5C6C0081615B /* CLVisitExplorerTests.swift */; };
 		F8BA3B281D1B5C6C0081615B /* CLVisitExplorerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BA3B271D1B5C6C0081615B /* CLVisitExplorerUITests.swift */; };
 /* End PBXBuildFile section */
@@ -46,12 +46,12 @@
 		940601F56194F4CA2124D68C /* Pods_CLVisitExplorerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CLVisitExplorerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A631C6B48623DD719DEDE4D8 /* Pods-CLVisitExplorerUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CLVisitExplorerUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CLVisitExplorerUITests/Pods-CLVisitExplorerUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		A9DB99B413C3346AE0C5CBDA /* Pods_CLVisitExplorer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CLVisitExplorer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F8522F821D1B65B6005DE871 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F8522F841D1B65B6005DE871 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		F8522F861D1B65B6005DE871 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F8BA3B041D1B5C6C0081615B /* CLVisitExplorer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CLVisitExplorer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8BA3B071D1B5C6C0081615B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F8BA3B091D1B5C6C0081615B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		F8BA3B0C1D1B5C6C0081615B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		F8BA3B0E1D1B5C6C0081615B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		F8BA3B111D1B5C6C0081615B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F8BA3B131D1B5C6C0081615B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F8BA3B181D1B5C6C0081615B /* CLVisitExplorerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CLVisitExplorerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8BA3B1C1D1B5C6C0081615B /* CLVisitExplorerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLVisitExplorerTests.swift; sourceTree = "<group>"; };
@@ -112,6 +112,16 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		F8522F801D1B65B6005DE871 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				F8522F821D1B65B6005DE871 /* Assets.xcassets */,
+				F8522F831D1B65B6005DE871 /* LaunchScreen.storyboard */,
+				F8522F851D1B65B6005DE871 /* Main.storyboard */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		F8BA3AFB1D1B5C6C0081615B = {
 			isa = PBXGroup;
 			children = (
@@ -138,11 +148,9 @@
 			isa = PBXGroup;
 			children = (
 				F8BA3B071D1B5C6C0081615B /* AppDelegate.swift */,
-				F8BA3B091D1B5C6C0081615B /* ViewController.swift */,
-				F8BA3B0B1D1B5C6C0081615B /* Main.storyboard */,
-				F8BA3B0E1D1B5C6C0081615B /* Assets.xcassets */,
-				F8BA3B101D1B5C6C0081615B /* LaunchScreen.storyboard */,
 				F8BA3B131D1B5C6C0081615B /* Info.plist */,
+				F8522F801D1B65B6005DE871 /* Resources */,
+				F8BA3B091D1B5C6C0081615B /* ViewController.swift */,
 			);
 			path = CLVisitExplorer;
 			sourceTree = "<group>";
@@ -291,9 +299,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F8BA3B121D1B5C6C0081615B /* LaunchScreen.storyboard in Resources */,
-				F8BA3B0F1D1B5C6C0081615B /* Assets.xcassets in Resources */,
-				F8BA3B0D1D1B5C6C0081615B /* Main.storyboard in Resources */,
+				F8522F891D1B65B6005DE871 /* Assets.xcassets in Resources */,
+				F8522F8B1D1B65B6005DE871 /* Main.storyboard in Resources */,
+				F8522F8A1D1B65B6005DE871 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -478,20 +486,20 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		F8BA3B0B1D1B5C6C0081615B /* Main.storyboard */ = {
+		F8522F831D1B65B6005DE871 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				F8BA3B0C1D1B5C6C0081615B /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		F8BA3B101D1B5C6C0081615B /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				F8BA3B111D1B5C6C0081615B /* Base */,
+				F8522F841D1B65B6005DE871 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		F8522F851D1B65B6005DE871 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F8522F861D1B65B6005DE871 /* Base */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
