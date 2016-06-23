@@ -32,4 +32,12 @@ extension LocationManager {
 }
 
 // MARK: - CLLocationManagerDelegate
-extension LocationManager: CLLocationManagerDelegate {}
+extension LocationManager: CLLocationManagerDelegate {
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        debugPrint("didChangeAuthorization", status)
+    }
+
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: NSError) {
+        debugPrint("didFailWithError", error)
+    }
+}
