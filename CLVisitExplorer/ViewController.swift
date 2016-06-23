@@ -54,13 +54,13 @@ extension ViewController {
 private extension ViewController {
     /// Starts or stops location updates depending on the current monitoringLocation value.
     private func toggleLocationMonitoring() {
-        monitoringLocation
+        !monitoringLocation
             ? LocationManager.shared.startLocationUpdates()
             : LocationManager.shared.stopLocationUpdates()
     }
 
     private func toggleVisitMonitoring() {
-        monitoringVisits
+        !monitoringVisits
             ? LocationManager.shared.startVisitUpdates()
             : LocationManager.shared.stopVisitUpdates()
     }
