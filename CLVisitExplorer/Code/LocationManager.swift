@@ -50,8 +50,8 @@ class LocationManager: NSObject {
         clManager.distanceFilter = 50
         clManager.pausesLocationUpdatesAutomatically = true
 
-        monitoringLocation = defaults.bool(forKey: Defaults.monitoringLocation.rawValue)
-        monitoringVisits = defaults.bool(forKey: Defaults.monitoringVisits.rawValue)
+        monitoringLocation = defaults.value(forKey: .monitoringLocation)
+        monitoringVisits = defaults.value(forKey: .monitoringVisits)
     }
 }
 

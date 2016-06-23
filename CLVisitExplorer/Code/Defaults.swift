@@ -14,3 +14,24 @@ enum Defaults: String {
     /// Boolean flag indicating whether visit monitoring is active.
     case monitoringVisits
 }
+
+import Foundation
+
+/// Adds methods working with Default enum values for keys instead of strings.
+extension UserDefaults {
+    /// Convenience property for standard UserDefaults.
+    private var defaults: UserDefaults { return UserDefaults.standard() }
+
+    func bool(forKey defaultKey: Defaults) -> Bool {
+        return defaults.bool(forKey: defaultKey.rawValue)
+    }
+
+    func value<T: CustomReflectable>(forKey defaultKey: Defaults) -> T {
+        switch T.self {
+        case is Bool.Type:
+            return defaults.bool(forKey: defaultKey) as! T
+        default:
+            fatalError("Unsupported return type")
+        }
+    }
+}
