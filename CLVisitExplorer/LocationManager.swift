@@ -13,6 +13,14 @@ class LocationManager: NSObject {
     static let shared = LocationManager()
     private let clManager = CLLocationManager()
 
+    private var locationServicesEnabled: Bool {
+        let enabled = CLLocationManager.locationServicesEnabled()
+        if !enabled {
+            debugPrint("Location services are disabled")
+        }
+        return enabled
+    }
+
     deinit {
         clManager.delegate = nil
     }
@@ -27,7 +35,23 @@ class LocationManager: NSObject {
 extension LocationManager {
     /// Requests permission to use the user's location
     func requestPermission() {
+        guard locationServicesEnabled else { return }
         clManager.requestAlwaysAuthorization()
+        debugPrint("Location permission requested")
+    }
+
+    /// Starts up continuous location updates.
+    func start() {
+        guard locationServicesEnabled else { return }
+        clManager.startUpdatingLocation()
+        debugPrint("Location updates started")
+    }
+
+    /// Discontinues continuous location updates.
+    func stop() {
+        guard locationServicesEnabled else { return }
+        clManager.stopUpdatingLocation()
+        debugPrint("Location updates stopped")
     }
 }
 
@@ -39,5 +63,10 @@ extension LocationManager: CLLocationManagerDelegate {
 
     func locationManager(_ manager: CLLocationManager, didFailWithError error: NSError) {
         debugPrint("didFailWithError", error)
+    }
+
+    /// Location updates delivered here
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        debugPrint("didUpdateLocations", locations)
     }
 }
