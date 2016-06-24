@@ -7,11 +7,14 @@
 //
 
 /// Keys used for storing values in UserDefaults.
+///
+/// - monitoringLocation: Boolean indicating whether location monitoring is active.
+/// - monitoringVisits:   Boolean indicating whether visit monitoring is active.
 enum Defaults: String {
-    /// Boolean flag indicating whether location monitoring is active.
+    /// Boolean indicating whether location monitoring is active.
     case monitoringLocation
 
-    /// Boolean flag indicating whether visit monitoring is active.
+    /// Boolean indicating whether visit monitoring is active.
     case monitoringVisits
 }
 
@@ -22,10 +25,24 @@ extension UserDefaults {
     /// Convenience property for standard UserDefaults.
     private var defaults: UserDefaults { return UserDefaults.standard() }
 
+    /// Overload taking a `Defaults` value for the key.
+    ///
+    /// - parameter defaultKey: `Defaults` enum value
+    ///
+    /// - returns: true or false
     func bool(forKey defaultKey: Defaults) -> Bool {
         return defaults.bool(forKey: defaultKey.rawValue)
     }
 
+    /// Experimental generic form for the various value retrieval methods. Infers type based on return context.
+    ///
+    /// - parameter defaultKey: `Defaults` enum value
+    ///
+    /// - returns: Value found in UserDefaults cast to the type requested.
+    ///
+    /// - note: Currently only `Bool` is supported
+    ///
+    /// - warning: Unsupported types cause a runtime crash.
     func value<T: CustomReflectable>(forKey defaultKey: Defaults) -> T {
         switch T.self {
         case is Bool.Type:
