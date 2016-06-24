@@ -24,16 +24,16 @@ class ViewController: UIViewController {
 
 // MARK: - IBAction
 extension ViewController {
-    @IBAction func didTapLocationButton(_ sender: UIButton) {
+    @IBAction func didTapLocationButton(_ button: UIButton) {
         debugPrint("didTapLocationButton, monitoringLocation", monitoringLocation)
         toggleLocationMonitoring()
-        toggleLocationButton()
+        updateTitle(button)
     }
 
-    @IBAction func didTapVisitsButton(_ sender: UIButton) {
+    @IBAction func didTapVisitsButton(_ button: UIButton) {
         debugPrint("didTapVisitsButton, monitoringVisits", monitoringVisits)
         toggleVisitMonitoring()
-        toggleVisitsButton()
+        updateTitle(button)
     }
 }
 
@@ -41,9 +41,7 @@ extension ViewController {
 extension ViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        if monitoringLocation { toggleLocationButton() }
-        if monitoringVisits { toggleVisitsButton() }
+        [locationButton, visitsButton].forEach { button in updateTitle(button) }
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -67,18 +65,26 @@ private extension ViewController {
             : LocationManager.shared.stopVisitUpdates()
     }
 
-    /// Updates the location button display depending on the current monitoringLocation value.
-    private func toggleLocationButton() {
-        let title = monitoringLocation
-            ? "Stop Monitoring Location"
-            : "Start Monitoring Location"
-        locationButton.setTitle(title, for: [])
-    }
 
-    private func toggleVisitsButton() {
-        let title = monitoringVisits
-            ? "Stop Monitoring Visits"
-            : "Start Monitoring Visits"
-        visitsButton.setTitle(title, for: [])
+    /// Updates the button title based on the state of the relevant service.
+    ///
+    /// - parameter button: Button to update.
+    private func updateTitle(_ button: UIButton) {
+        var title: String
+
+        switch button {
+        case locationButton:
+            title = monitoringLocation
+                ? "Stop Monitoring Location"
+                : "Start Monitoring Location"
+        case visitsButton:
+            title = monitoringVisits
+                ? "Stop Monitoring Visits"
+                : "Start Monitoring Visits"
+        default:
+            fatalError("Unknown button: \(button)")
+        }
+
+        button.setTitle(title, for: [])
     }
 }
