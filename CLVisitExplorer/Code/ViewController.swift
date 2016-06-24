@@ -70,7 +70,7 @@ private extension ViewController {
     /// Updates the location button display depending on the current monitoringLocation value.
     private func toggleLocationButton() {
         let title = monitoringLocation
-            ? "Stop Monitoring Location"
+            ? NSLocalizedString("service.location.stop", comment: "Title of button which stops location monitoring")
             : "Start Monitoring Location"
         startStopLocationButton.setTitle(title, for: [])
     }

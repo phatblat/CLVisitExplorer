@@ -10,6 +10,7 @@
 		07342CD469928D0F53DC22B0 /* Pods_CLVisitExplorer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9DB99B413C3346AE0C5CBDA /* Pods_CLVisitExplorer.framework */; };
 		E3C5D8398D8CB108C1847CE6 /* Pods_CLVisitExplorerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EA54F9C03E61FED5047682B /* Pods_CLVisitExplorerUITests.framework */; };
 		E81CAA8D758DFD46EF4527B6 /* Pods_CLVisitExplorerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 940601F56194F4CA2124D68C /* Pods_CLVisitExplorerTests.framework */; };
+		F800DE391D1CE38A009F038F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F800DE371D1CE38A009F038F /* Localizable.strings */; };
 		F8522F891D1B65B6005DE871 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8522F821D1B65B6005DE871 /* Assets.xcassets */; };
 		F8522F8A1D1B65B6005DE871 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8522F831D1B65B6005DE871 /* LaunchScreen.storyboard */; };
 		F8522F8B1D1B65B6005DE871 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8522F851D1B65B6005DE871 /* Main.storyboard */; };
@@ -48,6 +49,7 @@
 		940601F56194F4CA2124D68C /* Pods_CLVisitExplorerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CLVisitExplorerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A631C6B48623DD719DEDE4D8 /* Pods-CLVisitExplorerUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CLVisitExplorerUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CLVisitExplorerUITests/Pods-CLVisitExplorerUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		A9DB99B413C3346AE0C5CBDA /* Pods_CLVisitExplorer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CLVisitExplorer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F800DE381D1CE38A009F038F /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F8522F821D1B65B6005DE871 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F8522F841D1B65B6005DE871 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F8522F861D1B65B6005DE871 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 			children = (
 				F8522F821D1B65B6005DE871 /* Assets.xcassets */,
 				F8522F831D1B65B6005DE871 /* LaunchScreen.storyboard */,
+				F800DE371D1CE38A009F038F /* Localizable.strings */,
 				F8522F851D1B65B6005DE871 /* Main.storyboard */,
 			);
 			path = Resources;
@@ -200,6 +203,7 @@
 				F8BA3B021D1B5C6C0081615B /* Resources */,
 				4F054CE053E1E5CFFDF93AD7 /* [CP] Embed Pods Frameworks */,
 				C086969C35EEDB78C31604B0 /* [CP] Copy Pods Resources */,
+				F800DE361D1CD9D3009F038F /* Genstrings */,
 			);
 			buildRules = (
 			);
@@ -313,6 +317,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F800DE391D1CE38A009F038F /* Localizable.strings in Resources */,
 				F8522F891D1B65B6005DE871 /* Assets.xcassets in Resources */,
 				F8522F8B1D1B65B6005DE871 /* Main.storyboard in Resources */,
 				F8522F8A1D1B65B6005DE871 /* LaunchScreen.storyboard in Resources */,
@@ -456,6 +461,20 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CLVisitExplorerTests/Pods-CLVisitExplorerTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		F800DE361D1CD9D3009F038F /* Genstrings */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = Genstrings;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "find ./ -name \"*.swift\" -print0 | xargs -0 genstrings -o CLVisitExplorer/Resources/Base.lproj";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -502,6 +521,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		F800DE371D1CE38A009F038F /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F800DE381D1CE38A009F038F /* Base */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		F8522F831D1B65B6005DE871 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
