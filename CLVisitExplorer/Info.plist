@@ -49,5 +49,7 @@
 	</array>
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>Background location updates are used to monitor when you visit interesting places.</string>
+	<key>CFBundleDisplayName</key>
+	<string>Visit Explorer</string>
 </dict>
 </plist>
