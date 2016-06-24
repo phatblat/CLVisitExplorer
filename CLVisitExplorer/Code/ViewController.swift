@@ -6,10 +6,12 @@
 //  Copyright © 2016 Ben Chatelain. All rights reserved.
 //
 
+import MapKit
 import UIKit
 
 // MARK: - Storage
 class ViewController: UIViewController {
+    @IBOutlet private var mapView: MKMapView!
     @IBOutlet private var startStopLocationButton: UIButton!
     @IBOutlet private var startStopVisitsButton: UIButton!
 
