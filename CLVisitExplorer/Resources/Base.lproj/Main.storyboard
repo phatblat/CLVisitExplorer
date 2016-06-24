@@ -46,9 +46,9 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="locationButton" destination="uUO-MH-tRT" id="kVU-4z-Urg"/>
                         <outlet property="mapView" destination="dEf-Zk-T5c" id="7da-5W-hR1"/>
-                        <outlet property="startStopLocationButton" destination="uUO-MH-tRT" id="w8d-LZ-Ww1"/>
-                        <outlet property="startStopVisitsButton" destination="tXc-nb-72c" id="x9s-t8-Lvl"/>
+                        <outlet property="visitsButton" destination="tXc-nb-72c" id="2ZY-y8-aEw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

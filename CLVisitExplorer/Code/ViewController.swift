@@ -12,8 +12,8 @@ import UIKit
 // MARK: - Storage
 class ViewController: UIViewController {
     @IBOutlet private var mapView: MKMapView!
-    @IBOutlet private var startStopLocationButton: UIButton!
-    @IBOutlet private var startStopVisitsButton: UIButton!
+    @IBOutlet private var locationButton: UIButton!
+    @IBOutlet private var visitsButton: UIButton!
 
     /// Indicates whether location updates are currently being delivered.
     private var monitoringLocation: Bool { return LocationManager.shared.monitoringLocation }
@@ -25,13 +25,13 @@ class ViewController: UIViewController {
 // MARK: - IBAction
 extension ViewController {
     @IBAction func didTapLocationButton(_ sender: UIButton) {
-        debugPrint("startStopButton, monitoringLocation", monitoringLocation)
+        debugPrint("didTapLocationButton, monitoringLocation", monitoringLocation)
         toggleLocationMonitoring()
         toggleLocationButton()
     }
 
     @IBAction func didTapVisitsButton(_ sender: UIButton) {
-        debugPrint("startStopButton, monitoringVisits", monitoringVisits)
+        debugPrint("didTapVisitsButton, monitoringVisits", monitoringVisits)
         toggleVisitMonitoring()
         toggleVisitsButton()
     }
@@ -72,13 +72,13 @@ private extension ViewController {
         let title = monitoringLocation
             ? "Stop Monitoring Location"
             : "Start Monitoring Location"
-        startStopLocationButton.setTitle(title, for: [])
+        locationButton.setTitle(title, for: [])
     }
 
     private func toggleVisitsButton() {
         let title = monitoringVisits
             ? "Stop Monitoring Visits"
             : "Start Monitoring Visits"
-        startStopVisitsButton.setTitle(title, for: [])
+        visitsButton.setTitle(title, for: [])
     }
 }
