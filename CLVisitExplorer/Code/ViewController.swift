@@ -42,12 +42,26 @@ extension ViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         [locationButton, visitsButton].forEach { button in updateTitle(button) }
+        configureMapView()
     }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         LocationManager.shared.requestPermission()
     }
+}
+
+// MARK: - MKMapViewDelegate
+extension ViewController: MKMapViewDelegate {
+    func mapViewWillStartLoadingMap(_ mapView: MKMapView) { debugPrint("mapViewWillStartLoadingMap") }
+
+    func mapViewWillStartRenderingMap(_ mapView: MKMapView) { debugPrint("mapViewWillStartRenderingMap") }
+
+    func mapViewDidFinishLoadingMap(_ mapView: MKMapView) { debugPrint("mapViewDidFinishLoadingMap") }
+
+    func mapViewWillStartLocatingUser(_ mapView: MKMapView) { debugPrint("mapViewWillStartLocatingUser") }
+
+    func mapViewDidStopLocatingUser(_ mapView: MKMapView) { debugPrint("mapViewDidStopLocatingUser") }
 }
 
 // MARK: - Private
@@ -64,7 +78,6 @@ private extension ViewController {
             ? LocationManager.shared.startVisitUpdates()
             : LocationManager.shared.stopVisitUpdates()
     }
-
 
     /// Updates the button title based on the state of the relevant service.
     ///
@@ -86,5 +99,10 @@ private extension ViewController {
         }
 
         button.setTitle(title, for: [])
+    }
+
+    private func configureMapView() {
+        mapView.showsUserLocation = true
+        mapView.userTrackingMode = .follow
     }
 }
