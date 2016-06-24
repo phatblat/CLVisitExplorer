@@ -23,6 +23,7 @@ extension AppDelegate: UIApplicationDelegate {
 
         let settings = UIUserNotificationSettings(types: [.alert], categories: nil)
         application.registerUserNotificationSettings(settings)
+        printDisplayName()
 
         return true
     }
@@ -48,4 +49,19 @@ extension AppDelegate: UIApplicationDelegate {
 
 private extension AppDelegate {
     private var defaults: UserDefaults { return UserDefaults.standard() }
+
+    private func printDisplayName() {
+        var bundle = Bundle.main()
+        if bundle.bundleURL.pathExtension == "appex" {
+            // Peel off two directory levels - MY_APP.app/PlugIns/MY_APP_EXTENSION.appex
+            if let url = try? bundle.bundleURL.deletingLastPathComponent().deletingLastPathComponent() {
+                if let appBundle = Bundle(url: url) {
+                    bundle = appBundle
+                }
+            }
+        }
+        
+        let appDisplayName = bundle.objectForInfoDictionaryKey("CFBundleDisplayName")
+        print("CFBundleDisplayName: \(appDisplayName)")
+    }
 }
