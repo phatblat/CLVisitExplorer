@@ -6,12 +6,14 @@
 //  Copyright © 2016 Ben Chatelain. All rights reserved.
 //
 
+import MapKit
 import UIKit
 
 // MARK: - Storage
 class ViewController: UIViewController {
-    @IBOutlet private var startStopLocationButton: UIButton!
-    @IBOutlet private var startStopVisitsButton: UIButton!
+    @IBOutlet private var mapView: MKMapView!
+    @IBOutlet private var locationButton: UIButton!
+    @IBOutlet private var visitsButton: UIButton!
 
     /// Indicates whether location updates are currently being delivered.
     private var monitoringLocation: Bool { return LocationManager.shared.monitoringLocation }
@@ -22,16 +24,16 @@ class ViewController: UIViewController {
 
 // MARK: - IBAction
 extension ViewController {
-    @IBAction func didTapLocationButton(_ sender: UIButton) {
-        debugPrint("startStopButton, monitoringLocation", monitoringLocation)
+    @IBAction func didTapLocationButton(_ button: UIButton) {
+        debugPrint("didTapLocationButton, monitoringLocation", monitoringLocation)
         toggleLocationMonitoring()
-        toggleLocationButton()
+        updateTitle(button)
     }
 
-    @IBAction func didTapVisitsButton(_ sender: UIButton) {
-        debugPrint("startStopButton, monitoringVisits", monitoringVisits)
+    @IBAction func didTapVisitsButton(_ button: UIButton) {
+        debugPrint("didTapVisitsButton, monitoringVisits", monitoringVisits)
         toggleVisitMonitoring()
-        toggleVisitsButton()
+        updateTitle(button)
     }
 }
 
@@ -39,15 +41,27 @@ extension ViewController {
 extension ViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        if monitoringLocation { toggleLocationButton() }
-        if monitoringVisits { toggleVisitsButton() }
+        [locationButton, visitsButton].forEach { button in updateTitle(button) }
+        configureMapView()
     }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         LocationManager.shared.requestPermission()
     }
+}
+
+// MARK: - MKMapViewDelegate
+extension ViewController: MKMapViewDelegate {
+    func mapViewWillStartLoadingMap(_ mapView: MKMapView) { debugPrint("mapViewWillStartLoadingMap") }
+
+    func mapViewWillStartRenderingMap(_ mapView: MKMapView) { debugPrint("mapViewWillStartRenderingMap") }
+
+    func mapViewDidFinishLoadingMap(_ mapView: MKMapView) { debugPrint("mapViewDidFinishLoadingMap") }
+
+    func mapViewWillStartLocatingUser(_ mapView: MKMapView) { debugPrint("mapViewWillStartLocatingUser") }
+
+    func mapViewDidStopLocatingUser(_ mapView: MKMapView) { debugPrint("mapViewDidStopLocatingUser") }
 }
 
 // MARK: - Private
@@ -65,18 +79,30 @@ private extension ViewController {
             : LocationManager.shared.stopVisitUpdates()
     }
 
-    /// Updates the location button display depending on the current monitoringLocation value.
-    private func toggleLocationButton() {
-        let title = monitoringLocation
-            ? "Stop Monitoring Location"
-            : "Start Monitoring Location"
-        startStopLocationButton.setTitle(title, for: [])
+    /// Updates the button title based on the state of the relevant service.
+    ///
+    /// - parameter button: Button to update.
+    private func updateTitle(_ button: UIButton) {
+        var title: String
+
+        switch button {
+        case locationButton:
+            title = monitoringLocation
+                ? "Stop Monitoring Location"
+                : "Start Monitoring Location"
+        case visitsButton:
+            title = monitoringVisits
+                ? "Stop Monitoring Visits"
+                : "Start Monitoring Visits"
+        default:
+            fatalError("Unknown button: \(button)")
+        }
+
+        button.setTitle(title, for: [])
     }
 
-    private func toggleVisitsButton() {
-        let title = monitoringVisits
-            ? "Stop Monitoring Visits"
-            : "Start Monitoring Visits"
-        startStopVisitsButton.setTitle(title, for: [])
+    private func configureMapView() {
+        mapView.showsUserLocation = true
+        mapView.userTrackingMode = .follow
     }
 }

@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11103.10"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -18,14 +19,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="dEf-Zk-T5c">
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="sPW-ff-cmE"/>
+                                </connections>
+                            </mapView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uUO-MH-tRT">
-                                <state key="normal" title="Start Monitoring Location"/>
+                                <state key="normal" title="Location Button"/>
                                 <connections>
                                     <action selector="didTapLocationButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jQ3-z0-G1d"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tXc-nb-72c">
-                                <state key="normal" title="Start Monitoring Visits"/>
+                                <state key="normal" title="Visits Button"/>
                                 <connections>
                                     <action selector="didTapVisitsButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Iaa-yq-raM"/>
                                 </connections>
@@ -33,19 +39,26 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="dEf-Zk-T5c" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="EDY-61-6O8"/>
                             <constraint firstItem="tXc-nb-72c" firstAttribute="centerX" secondItem="uUO-MH-tRT" secondAttribute="centerX" id="Gk1-1f-Upe"/>
+                            <constraint firstItem="uUO-MH-tRT" firstAttribute="top" secondItem="dEf-Zk-T5c" secondAttribute="bottom" constant="100" id="TpM-Lk-WQf"/>
+                            <constraint firstItem="dEf-Zk-T5c" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.5" id="XBr-fW-YYz"/>
+                            <constraint firstAttribute="trailing" secondItem="dEf-Zk-T5c" secondAttribute="trailing" id="XHv-sW-HJl"/>
                             <constraint firstItem="uUO-MH-tRT" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ZkR-1V-dfb"/>
                             <constraint firstItem="tXc-nb-72c" firstAttribute="top" secondItem="uUO-MH-tRT" secondAttribute="bottom" constant="67" id="fKU-tF-CqK"/>
-                            <constraint firstItem="uUO-MH-tRT" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="jfi-zz-zLN"/>
+                            <constraint firstItem="dEf-Zk-T5c" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="sn8-gV-Ic5"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="startStopLocationButton" destination="uUO-MH-tRT" id="w8d-LZ-Ww1"/>
-                        <outlet property="startStopVisitsButton" destination="tXc-nb-72c" id="x9s-t8-Lvl"/>
+                        <outlet property="locationButton" destination="uUO-MH-tRT" id="kVU-4z-Urg"/>
+                        <outlet property="mapView" destination="dEf-Zk-T5c" id="7da-5W-hR1"/>
+                        <outlet property="visitsButton" destination="tXc-nb-72c" id="2ZY-y8-aEw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="141.59999999999999" y="137.18140929535232"/>
         </scene>
     </scenes>
+    <color key="tintColor" red="0.0" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
 </document>
