@@ -127,6 +127,6 @@ extension LocationManager: CLLocationManagerDelegate {
     /// Interesting location visits are delivered here.
     func locationManager(_ manager: CLLocationManager, didVisit visit: CLVisit) {
         debugPrint("didVisit", visit)
-        // TODO: Build realm visit from CLVisit
+        PlaceManager().add(clVisit: visit)
     }
 }
