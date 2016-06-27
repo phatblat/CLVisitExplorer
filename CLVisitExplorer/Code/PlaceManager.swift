@@ -24,7 +24,7 @@ extension PlaceManager {
             visit.arrivalDeliveryDate = now
         }
         if clVisit.departureDate > Date.distantPast {
-            visit.departureDate = clVisit.arrivalDate
+            visit.departureDate = clVisit.departureDate
             visit.departureDeliveryDate = now
         }
 
