@@ -23,3 +23,10 @@ class Place: Object {
         return "id"
     }
 }
+
+// MARK: - Computed Properties
+extension Place {
+    var coordinate: Coordinate {
+        return Coordinate(latitude: latitude, longitude: longitude)
+    }
+}

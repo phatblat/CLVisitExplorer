@@ -22,3 +22,10 @@ class Visit: Object {
         return "id"
     }
 }
+
+// MARK: - Computed Properties
+extension Visit {
+    var coordinate: Coordinate {
+        return Coordinate(latitude: latitude, longitude: longitude)
+    }
+}

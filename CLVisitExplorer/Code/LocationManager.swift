@@ -8,6 +8,8 @@
 
 import CoreLocation
 
+typealias Coordinate = CLLocationCoordinate2D
+
 // MARK: - Storage & Init
 class LocationManager: NSObject {
     static let shared = LocationManager()
