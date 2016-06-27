@@ -128,6 +128,5 @@ extension LocationManager: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didVisit visit: CLVisit) {
         debugPrint("didVisit", visit)
         // TODO: Build realm visit from CLVisit
-        NotificationHelper.notify(visit: Visit())
     }
 }

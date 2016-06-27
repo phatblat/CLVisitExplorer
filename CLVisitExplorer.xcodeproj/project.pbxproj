@@ -22,6 +22,7 @@
 		F8FB19961D2093EC00AC7692 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8FB19951D2093EC00AC7692 /* Place.swift */; };
 		F8FB19981D20958400AC7692 /* Visit.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8FB19971D20958400AC7692 /* Visit.swift */; };
 		F8FB199A1D20C15A00AC7692 /* NotificationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8FB19991D20C15A00AC7692 /* NotificationHelper.swift */; };
+		F8FB199C1D20C25A00AC7692 /* PlaceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8FB199B1D20C25A00AC7692 /* PlaceManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +70,7 @@
 		F8FB19951D2093EC00AC7692 /* Place.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		F8FB19971D20958400AC7692 /* Visit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Visit.swift; sourceTree = "<group>"; };
 		F8FB19991D20C15A00AC7692 /* NotificationHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationHelper.swift; sourceTree = "<group>"; };
+		F8FB199B1D20C25A00AC7692 /* PlaceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +141,7 @@
 				F89EB8291D1C0E70004FD809 /* Defaults.swift */,
 				F89EB82A1D1C0E70004FD809 /* LocationManager.swift */,
 				F8FB19991D20C15A00AC7692 /* NotificationHelper.swift */,
+				F8FB199B1D20C25A00AC7692 /* PlaceManager.swift */,
 				F8FB19941D2091A600AC7692 /* Realm */,
 				F89EB82B1D1C0E70004FD809 /* ViewController.swift */,
 			);
@@ -485,6 +488,7 @@
 				F89EB82C1D1C0E70004FD809 /* AppDelegate.swift in Sources */,
 				F89EB82F1D1C0E70004FD809 /* ViewController.swift in Sources */,
 				F8FB19961D2093EC00AC7692 /* Place.swift in Sources */,
+				F8FB199C1D20C25A00AC7692 /* PlaceManager.swift in Sources */,
 				F8FB19981D20958400AC7692 /* Visit.swift in Sources */,
 				F8FB199A1D20C15A00AC7692 /* NotificationHelper.swift in Sources */,
 			);
