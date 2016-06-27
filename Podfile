@@ -1,9 +1,10 @@
-platform :ios, '9.0'
+platform :ios, '9.3'
 
 target 'CLVisitExplorer' do
   use_frameworks!
 
-  #pod 'RealmSwift', :git => 'https://github.com/realm/realm-cocoa.git'
+  pod 'Realm', git: 'git@github.com:realm/realm-cocoa.git', branch: 'master'
+  pod 'RealmSwift', git: 'git@github.com:realm/realm-cocoa.git', branch: 'master'
 
   target 'CLVisitExplorerTests' do
     inherit! :search_paths

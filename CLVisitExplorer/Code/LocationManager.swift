@@ -7,8 +7,8 @@
 //
 
 import CoreLocation
-import UIKit
-import UserNotifications
+
+typealias Coordinate = CLLocationCoordinate2D
 
 // MARK: - Storage & Init
 class LocationManager: NSObject {
@@ -127,14 +127,6 @@ extension LocationManager: CLLocationManagerDelegate {
     /// Interesting location visits are delivered here.
     func locationManager(_ manager: CLLocationManager, didVisit visit: CLVisit) {
         debugPrint("didVisit", visit)
-
-//        if #available(iOS 10.0, *) {
-//            let notification = UNCalendarNotificationTrigger(dateMatching: <#T##DateComponents#>, repeats: <#T##Bool#>)
-//        } else {
-            let notification = UILocalNotification()
-            notification.alertTitle = "Visit"
-            notification.alertBody = String(visit)
-            UIApplication.shared().presentLocalNotificationNow(notification)
-//        }
+        PlaceManager().add(clVisit: visit)
     }
 }
