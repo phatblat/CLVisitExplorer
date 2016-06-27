@@ -26,8 +26,9 @@ class ViewController: UIViewController {
 extension ViewController {
     @IBAction func didTapLocationButton(_ button: UIButton) {
         debugPrint("didTapLocationButton, monitoringLocation", monitoringLocation)
-        toggleLocationMonitoring()
-        updateTitle(button)
+//        toggleLocationMonitoring()
+//        updateTitle(button)
+        PlaceManager().add(clVisit: CLVisit())
     }
 
     @IBAction func didTapVisitsButton(_ button: UIButton) {
