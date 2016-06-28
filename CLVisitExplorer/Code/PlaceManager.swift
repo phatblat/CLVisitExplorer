@@ -17,6 +17,7 @@ extension PlaceManager {
         let visit = Visit()
         visit.latitude = clVisit.coordinate.latitude
         visit.longitude = clVisit.coordinate.longitude
+        visit.horizontalAccuracy = clVisit.horizontalAccuracy
 
         let now = Date()
         if clVisit.arrivalDate > Date.distantPast {

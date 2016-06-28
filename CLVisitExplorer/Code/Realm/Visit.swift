@@ -14,6 +14,9 @@ class Visit: Object {
     dynamic var latitude: Double = 0
     dynamic var longitude: Double = 0
 
+    /// The horizontal accuracy (in meters) of the specified coordinate.
+    dynamic var horizontalAccuracy: Double = 0
+
     /// The approximate time at which the user arrived at the specified location.
     dynamic var arrivalDate: Date?
 
