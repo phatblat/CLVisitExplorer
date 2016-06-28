@@ -55,7 +55,7 @@ extension PlaceManager {
         let highLat = coordinate.latitude + delta
         let lowLon = coordinate.longitude - delta
         let highLon = coordinate.longitude + delta
-        let predicate = Predicate(format: "latitude BETWEEN {%@, %@} AND longitude BETWEEN {%@, %@}", lowLat, highLat, lowLon, highLon)
+        let predicate = Predicate(format: "latitude BETWEEN {%f, %f} AND longitude BETWEEN {%f, %f}", lowLat, highLat, lowLon, highLon)
 
         do {
             let realm = try Realm()
