@@ -10,6 +10,13 @@
 import XCTest
 import CoreLocation
 
+struct MockVisit: LocationVisit {
+    var arrivalDate: Date
+    var departureDate: Date
+    var coordinate: CLLocationCoordinate2D
+    var horizontalAccuracy: CLLocationAccuracy
+}
+
 class PlaceManagerTestCase: XCTestCase {
     var manager: PlaceManager!
 
@@ -24,8 +31,9 @@ class PlaceManagerTestCase: XCTestCase {
     }
 
     func testAddVisit() {
-        let clVisit = CLVisit()
-//        clVisit.coordinate = CLLocationCoordinate2D(latitude: 0, longitude: 0)
-        manager.add(clVisit)
+        let coordinate = CLLocationCoordinate2D(latitude: 0, longitude: 0)
+        let visit = MockVisit(arrivalDate: Date(), departureDate: Date(), coordinate: coordinate, horizontalAccuracy: 10)
+//        visit.coordinate = CLLocationCoordinate2D(latitude: 0, longitude: 0)
+        manager.add(visit)
     }
 }

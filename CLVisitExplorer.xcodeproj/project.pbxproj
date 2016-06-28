@@ -18,6 +18,7 @@
 		F89EB82E1D1C0E70004FD809 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89EB82A1D1C0E70004FD809 /* LocationManager.swift */; };
 		F89EB82F1D1C0E70004FD809 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89EB82B1D1C0E70004FD809 /* ViewController.swift */; };
 		F8BA3B281D1B5C6C0081615B /* CLVisitExplorerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BA3B271D1B5C6C0081615B /* CLVisitExplorerUITests.swift */; };
+		F8CCE23C1D2330630085D5A9 /* LocationVisit.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8CCE23B1D2330630085D5A9 /* LocationVisit.swift */; };
 		F8FB19961D2093EC00AC7692 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8FB19951D2093EC00AC7692 /* Place.swift */; };
 		F8FB19981D20958400AC7692 /* Visit.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8FB19971D20958400AC7692 /* Visit.swift */; };
 		F8FB199A1D20C15A00AC7692 /* NotificationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8FB19991D20C15A00AC7692 /* NotificationHelper.swift */; };
@@ -67,6 +68,7 @@
 		F8BA3B231D1B5C6C0081615B /* CLVisitExplorerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CLVisitExplorerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8BA3B271D1B5C6C0081615B /* CLVisitExplorerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLVisitExplorerUITests.swift; sourceTree = "<group>"; };
 		F8BA3B291D1B5C6C0081615B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F8CCE23B1D2330630085D5A9 /* LocationVisit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationVisit.swift; sourceTree = "<group>"; };
 		F8FB19951D2093EC00AC7692 /* Place.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		F8FB19971D20958400AC7692 /* Visit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Visit.swift; sourceTree = "<group>"; };
 		F8FB19991D20C15A00AC7692 /* NotificationHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationHelper.swift; sourceTree = "<group>"; };
@@ -142,6 +144,7 @@
 				F89EB8281D1C0E70004FD809 /* AppDelegate.swift */,
 				F89EB8291D1C0E70004FD809 /* Defaults.swift */,
 				F89EB82A1D1C0E70004FD809 /* LocationManager.swift */,
+				F8CCE23B1D2330630085D5A9 /* LocationVisit.swift */,
 				F8FB19991D20C15A00AC7692 /* NotificationHelper.swift */,
 				F8FB199B1D20C25A00AC7692 /* PlaceManager.swift */,
 				F8FB19941D2091A600AC7692 /* Realm */,
@@ -495,6 +498,7 @@
 				F8FB19961D2093EC00AC7692 /* Place.swift in Sources */,
 				F8FB199C1D20C25A00AC7692 /* PlaceManager.swift in Sources */,
 				F8FB19981D20958400AC7692 /* Visit.swift in Sources */,
+				F8CCE23C1D2330630085D5A9 /* LocationVisit.swift in Sources */,
 				F8FB199A1D20C15A00AC7692 /* NotificationHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
