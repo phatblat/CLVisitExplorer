@@ -37,6 +37,6 @@ class PlaceManagerTestCase: XCTestCase {
         manager.add(visit)
         let visits = manager.visits(near: coordinate)
         XCTAssertNotNil(visits)
-        XCTAssertEqual(visits.count, 1)
+        XCTAssert(visits.count >= 1)
     }
 }
