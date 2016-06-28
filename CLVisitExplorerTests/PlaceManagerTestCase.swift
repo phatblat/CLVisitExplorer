@@ -9,6 +9,7 @@
 @testable import CLVisitExplorer
 import XCTest
 import CoreLocation
+import RealmSwift
 
 struct MockVisit: LocationVisit {
     var arrivalDate: Date
@@ -33,7 +34,9 @@ class PlaceManagerTestCase: XCTestCase {
     func testAddVisit() {
         let coordinate = CLLocationCoordinate2D(latitude: 0, longitude: 0)
         let visit = MockVisit(arrivalDate: Date(), departureDate: Date(), coordinate: coordinate, horizontalAccuracy: 10)
-//        visit.coordinate = CLLocationCoordinate2D(latitude: 0, longitude: 0)
         manager.add(visit)
+        let visits = manager.visits(near: coordinate)
+        XCTAssertNotNil(visits)
+        XCTAssertEqual(visits.count, 1)
     }
 }
