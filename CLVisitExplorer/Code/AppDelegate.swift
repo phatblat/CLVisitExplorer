@@ -21,7 +21,7 @@ extension AppDelegate: UIApplicationDelegate {
         }
         LocationManager.shared.restartLocationServices()
 
-        let settings = UIUserNotificationSettings(types: [.alert], categories: nil)
+        let settings = UIUserNotificationSettings(types: [.alert, .sound], categories: nil)
         application.registerUserNotificationSettings(settings)
         printDisplayName()
 
