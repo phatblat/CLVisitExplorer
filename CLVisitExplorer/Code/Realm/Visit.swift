@@ -6,11 +6,12 @@
 //  Copyright © 2016 Ben Chatelain. All rights reserved.
 //
 
+import Realm
 import RealmSwift
 
 // MARK: - Storage
 class Visit: Object {
-    dynamic var id = 0
+    dynamic var id: String = ""
     dynamic var latitude: Double = 0
     dynamic var longitude: Double = 0
 
@@ -54,6 +55,20 @@ class Visit: Object {
         $0.unitsStyle = .short
         return $0
     }(DateComponentsFormatter())
+
+    // MARK: - Init
+    required init() {
+        super.init()
+        id = uniqueId()
+    }
+    
+    required init(value: AnyObject, schema: RLMSchema) {
+        super.init(value: value, schema: schema)
+    }
+    
+    required init(realm: RLMRealm, schema: RLMObjectSchema) {
+        super.init(realm: realm, schema: schema)
+    }
 }
 
 // MARK - RealmSwift.Object
@@ -91,6 +106,13 @@ extension Visit {
     var duration: DateComponents? {
         guard let departure = departureDate else { return nil }
         return Calendar.current().components([.day, .hour, .minute, .second], from: departure)
+    }
+}
+
+// MARK: - Private
+private extension Visit {
+    private func uniqueId() -> String {
+        return UUID().uuidString
     }
 }
 
