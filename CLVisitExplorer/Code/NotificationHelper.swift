@@ -10,7 +10,7 @@ import UIKit
 import UserNotifications
 
 class NotificationHelper {
-    class func notify(visit: Visit) {
+    class func notify(_ visit: Visit) {
 //        if #available(iOS 10.0, *) {
 //            let notification = UNCalendarNotificationTrigger(dateMatching: <#T##DateComponents#>, repeats: <#T##Bool#>)
 //        } else {

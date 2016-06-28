@@ -288,6 +288,7 @@
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = MTGSZH8QM4;
 						DevelopmentTeamName = "Log Dash G, LLC";
+						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
@@ -299,6 +300,7 @@
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = ZVHNFV8S8B;
 						DevelopmentTeamName = "Ben Chatelain (Personal Team)";
+						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
 						TestTargetID = F8BA3B031D1B5C6C0081615B;
 					};

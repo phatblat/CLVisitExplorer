@@ -13,7 +13,7 @@ import RealmSwift
 class PlaceManager {}
 
 extension PlaceManager {
-    func add(clVisit: CLVisit) {
+    func add(_ clVisit: CLVisit) {
         let visit = Visit()
         visit.latitude = clVisit.coordinate.latitude
         visit.longitude = clVisit.coordinate.longitude
