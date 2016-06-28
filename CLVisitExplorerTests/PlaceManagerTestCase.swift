@@ -26,6 +26,6 @@ class PlaceManagerTestCase: XCTestCase {
     func testAddVisit() {
         let clVisit = CLVisit()
 //        clVisit.coordinate = CLLocationCoordinate2D(latitude: 0, longitude: 0)
-        manager.add(clVisit: clVisit)
+        manager.add(clVisit)
     }
 }

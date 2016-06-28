@@ -120,13 +120,13 @@ extension LocationManager: CLLocationManagerDelegate {
     }
 
     /// Location updates delivered here
-    func locationManager(_ manager: CLLocationManager, didUpdate locations: [CLLocation]) {
+    @objc(locationManager:didUpdateLocations:) func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         debugPrint("didUpdateLocations", locations)
     }
 
     /// Interesting location visits are delivered here.
     func locationManager(_ manager: CLLocationManager, didVisit visit: CLVisit) {
         debugPrint("didVisit", visit)
-        PlaceManager().add(clVisit: visit)
+        PlaceManager().add(visit)
     }
 }

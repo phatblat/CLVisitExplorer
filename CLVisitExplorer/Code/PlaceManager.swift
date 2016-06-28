@@ -38,6 +38,6 @@ extension PlaceManager {
             print("Error saving visit: \(visit)")
         }
 
-        NotificationHelper.notify(visit: visit)
+        NotificationHelper.notify(visit)
     }
 }
