@@ -61,6 +61,10 @@ extension Visit {
     override static func primaryKey() -> String? {
         return "id"
     }
+
+    override static func ignoredProperties() -> [String] {
+        return ["arrivalDateFormatter", "departureDateFormatter", "durationFormatter", "coordinate", "type", "description"]
+    }
 }
 
 // MARK: - Computed Properties
@@ -83,6 +87,7 @@ extension Visit {
         return (departureDate == nil) ? .Arrival : .Departure
     }
 
+    /// Amount of time for the visit; nil if the visit is still in progress.
     var duration: DateComponents? {
         guard let departure = departureDate else { return nil }
         return Calendar.current().components([.day, .hour, .minute, .second], from: departure)
