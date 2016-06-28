@@ -6,6 +6,7 @@
 //  Copyright © 2016 Ben Chatelain. All rights reserved.
 //
 
+import RealmSwift
 import UIKit
 
 @UIApplicationMain
@@ -24,6 +25,7 @@ extension AppDelegate: UIApplicationDelegate {
         let settings = UIUserNotificationSettings(types: [.alert, .sound], categories: nil)
         application.registerUserNotificationSettings(settings)
         printDisplayName()
+        configureRealm()
 
         return true
     }
@@ -63,5 +65,11 @@ private extension AppDelegate {
         
         let appDisplayName = bundle.objectForInfoDictionaryKey("CFBundleDisplayName")
         print("CFBundleDisplayName: \(appDisplayName)")
+    }
+
+    private func configureRealm() {
+        var config = Realm.Configuration.defaultConfiguration
+        config.deleteRealmIfMigrationNeeded = true
+        Realm.Configuration.defaultConfiguration = config
     }
 }
