@@ -103,11 +103,16 @@ extension Visit {
     }
 
     /// Amount of time for the visit; nil if the visit is still in progress.
-    var duration: DateComponents? {
+    var duration: TimeInterval? {
         guard let departure = departureDate else { return nil }
         guard let arrival = arrivalDate else { return nil }
-        let delta = Date(timeIntervalSinceNow: arrival.timeIntervalSince(departure))
-        return Calendar.current().components([.day, .hour, .minute, .second], from: delta)
+        return departure.timeIntervalSince(arrival)
+    }
+
+    var durationDateComponents: DateComponents? {
+        guard let delta = duration else { return nil }
+        let date = Date(timeIntervalSinceReferenceDate: -delta)
+        return Calendar.current().components([.day, .hour, .minute, .second], from: date)
     }
 }
 
