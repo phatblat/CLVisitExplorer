@@ -35,9 +35,9 @@ class Visit: Object {
 
     /// Used to format arrival date and time.
     private lazy var arrivalDateFormatter: DateFormatter = {
-        //$0.dateStyle = .mediumStyle
-        //$0.timeStyle = .shortStyle
-        $0.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        $0.dateStyle = .noStyle
+        $0.timeStyle = .mediumStyle
+//        $0.dateFormat = "yyyy-MM-dd HH:mm:ss"
         return $0
     }(DateFormatter())
 
