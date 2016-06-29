@@ -1,5 +1,5 @@
 //
-//  PlaceManagerTestCase.swift
+//  PlaceManagerTests.swift
 //  CLVisitExplorer
 //
 //  Created by Ben Chatelain on 6/26/16.
@@ -18,7 +18,7 @@ struct MockVisit: LocationVisit {
     var horizontalAccuracy: CLLocationAccuracy
 }
 
-class PlaceManagerTestCase: XCTestCase {
+class PlaceManagerTests: XCTestCase {
     var manager: PlaceManager!
 
     override func setUp() {

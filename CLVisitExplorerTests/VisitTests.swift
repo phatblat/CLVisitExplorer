@@ -1,5 +1,5 @@
 //
-//  VisitTestCase.swift
+//  VisitTests.swift
 //  CLVisitExplorer
 //
 //  Created by Ben Chatelain on 6/28/16.
@@ -9,7 +9,7 @@
 @testable import CLVisitExplorer
 import XCTest
 
-class VisitTestCase: XCTestCase {
+class VisitTests: XCTestCase {
     var visit: Visit!
     override func setUp() {
         super.setUp()

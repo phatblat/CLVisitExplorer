@@ -23,8 +23,8 @@
 		F8FB19981D20958400AC7692 /* Visit.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8FB19971D20958400AC7692 /* Visit.swift */; };
 		F8FB199A1D20C15A00AC7692 /* NotificationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8FB19991D20C15A00AC7692 /* NotificationHelper.swift */; };
 		F8FB199C1D20C25A00AC7692 /* PlaceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8FB199B1D20C25A00AC7692 /* PlaceManager.swift */; };
-		F8FB199E1D20E16900AC7692 /* PlaceManagerTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8FB199D1D20E16900AC7692 /* PlaceManagerTestCase.swift */; };
-		F8FB19A01D22D87E00AC7692 /* VisitTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8FB199F1D22D87E00AC7692 /* VisitTestCase.swift */; };
+		F8FB199E1D20E16900AC7692 /* PlaceManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8FB199D1D20E16900AC7692 /* PlaceManagerTests.swift */; };
+		F8FB19A01D22D87E00AC7692 /* VisitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8FB199F1D22D87E00AC7692 /* VisitTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,8 +73,8 @@
 		F8FB19971D20958400AC7692 /* Visit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Visit.swift; sourceTree = "<group>"; };
 		F8FB19991D20C15A00AC7692 /* NotificationHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationHelper.swift; sourceTree = "<group>"; };
 		F8FB199B1D20C25A00AC7692 /* PlaceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceManager.swift; sourceTree = "<group>"; };
-		F8FB199D1D20E16900AC7692 /* PlaceManagerTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceManagerTestCase.swift; sourceTree = "<group>"; };
-		F8FB199F1D22D87E00AC7692 /* VisitTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisitTestCase.swift; sourceTree = "<group>"; };
+		F8FB199D1D20E16900AC7692 /* PlaceManagerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceManagerTests.swift; sourceTree = "<group>"; };
+		F8FB199F1D22D87E00AC7692 /* VisitTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisitTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,8 +189,8 @@
 			isa = PBXGroup;
 			children = (
 				F8BA3B1E1D1B5C6C0081615B /* Info.plist */,
-				F8FB199D1D20E16900AC7692 /* PlaceManagerTestCase.swift */,
-				F8FB199F1D22D87E00AC7692 /* VisitTestCase.swift */,
+				F8FB199D1D20E16900AC7692 /* PlaceManagerTests.swift */,
+				F8FB199F1D22D87E00AC7692 /* VisitTests.swift */,
 			);
 			path = CLVisitExplorerTests;
 			sourceTree = "<group>";
@@ -507,8 +507,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F8FB199E1D20E16900AC7692 /* PlaceManagerTestCase.swift in Sources */,
-				F8FB19A01D22D87E00AC7692 /* VisitTestCase.swift in Sources */,
+				F8FB199E1D20E16900AC7692 /* PlaceManagerTests.swift in Sources */,
+				F8FB19A01D22D87E00AC7692 /* VisitTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
