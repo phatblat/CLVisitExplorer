@@ -1,4 +1,9 @@
 PODS:
+  - ABFRealmMapView (1.8):
+    - RBQFetchedResultsController (>= 2.0)
+    - Realm (>= 0.98)
+  - RBQFetchedResultsController (4.0.4):
+    - Realm (>= 1.0.0)
   - Realm (1.0.1):
     - Realm/Headers (= 1.0.1)
   - Realm/Headers (1.0.1)
@@ -6,6 +11,7 @@ PODS:
     - Realm (= 1.0.1)
 
 DEPENDENCIES:
+  - ABFRealmMapView
   - Realm (from `git@github.com:realm/realm-cocoa.git`, branch `master`)
   - RealmSwift (from `git@github.com:realm/realm-cocoa.git`, branch `master`)
 
@@ -26,9 +32,11 @@ CHECKOUT OPTIONS:
     :git: git@github.com:realm/realm-cocoa.git
 
 SPEC CHECKSUMS:
+  ABFRealmMapView: b440d11a5666a4575847a8e02313e57c370a4d38
+  RBQFetchedResultsController: 56494d69fef1e47f9f70c3adcf1317d7b2e3d71c
   Realm: 2e15e39d35b08abb529e212ed5d8af107b5236c8
   RealmSwift: d73ea2af08c3676dbdd5e4b669651a0f492162a4
 
-PODFILE CHECKSUM: a73e88d82b7c9186bd5723b7466bf86f8a33bedc
+PODFILE CHECKSUM: 714a09c4544a5cd9839bbd926b573487c44e0ba8
 
 COCOAPODS: 1.0.1
