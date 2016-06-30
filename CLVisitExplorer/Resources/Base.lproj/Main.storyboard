@@ -19,7 +19,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="dEf-Zk-T5c">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="dEf-Zk-T5c" customClass="RealmMapView" customModule="RealmMapView">
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="entityName" value="Visit"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="latitudeKeyPath" value="latitude"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="longitudeKeyPath" value="longitude"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="titleKeyPath" value="arrivalDate"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="subtitleKeyPath" value="departureDate"/>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="sPW-ff-cmE"/>
                                 </connections>
