@@ -23,7 +23,7 @@ import Foundation
 /// Adds methods working with Default enum values for keys instead of strings.
 extension UserDefaults {
     /// Convenience property for standard UserDefaults.
-    private var defaults: UserDefaults { return UserDefaults.standard() }
+    private var defaults: UserDefaults { return UserDefaults.standard }
 
     /// Overload taking a `Defaults` value for the key.
     ///

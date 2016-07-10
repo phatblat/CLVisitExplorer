@@ -50,10 +50,10 @@ extension AppDelegate: UIApplicationDelegate {
 }
 
 private extension AppDelegate {
-    private var defaults: UserDefaults { return UserDefaults.standard() }
+    private var defaults: UserDefaults { return UserDefaults.standard }
 
     private func printDisplayName() {
-        var bundle = Bundle.main()
+        var bundle = Bundle.main
         if bundle.bundleURL.pathExtension == "appex" {
             // Peel off two directory levels - MY_APP.app/PlugIns/MY_APP_EXTENSION.appex
             if let url = try? bundle.bundleURL.deletingLastPathComponent().deletingLastPathComponent() {

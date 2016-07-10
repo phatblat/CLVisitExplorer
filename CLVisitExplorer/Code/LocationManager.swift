@@ -24,7 +24,7 @@ class LocationManager: NSObject {
     }
 
     /// Convenience property for standard UserDefaults.
-    private var defaults: UserDefaults { return UserDefaults.standard() }
+    private var defaults: UserDefaults { return UserDefaults.standard }
 
     /// Indicates whether location updates are currently being delivered.
     var monitoringLocation = false { didSet {
