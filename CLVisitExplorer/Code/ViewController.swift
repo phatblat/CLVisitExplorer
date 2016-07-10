@@ -104,6 +104,6 @@ private extension ViewController {
 
     private func configureMapView() {
         mapView.showsUserLocation = true
-        mapView.userTrackingMode = .follow
+//        mapView.userTrackingMode = .follow
     }
 }
