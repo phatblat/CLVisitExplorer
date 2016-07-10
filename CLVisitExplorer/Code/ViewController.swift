@@ -7,6 +7,7 @@
 //
 
 import MapKit
+import RealmMapView
 import UIKit
 
 // MARK: - Storage
@@ -104,6 +105,10 @@ private extension ViewController {
 
     private func configureMapView() {
         mapView.showsUserLocation = true
-        mapView.userTrackingMode = .follow
+//        mapView.userTrackingMode = .follow
+
+        if let realmMapView = mapView as? RealmMapView {
+            realmMapView.autoRefresh = false
+        }
     }
 }

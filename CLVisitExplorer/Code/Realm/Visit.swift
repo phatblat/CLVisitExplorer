@@ -35,16 +35,16 @@ class Visit: Object {
 
     /// Used to format arrival date and time.
     private lazy var arrivalDateFormatter: DateFormatter = {
-        $0.dateStyle = .noStyle
-        $0.timeStyle = .mediumStyle
+        $0.dateStyle = .none
+        $0.timeStyle = .medium
 //        $0.dateFormat = "yyyy-MM-dd HH:mm:ss"
         return $0
     }(DateFormatter())
 
     /// Used to format departure time.
     private lazy var departureDateFormatter: DateFormatter = {
-        $0.dateStyle = .noStyle
-        $0.timeStyle = .mediumStyle // 3:30:32 PM
+        $0.dateStyle = .none
+        $0.timeStyle = .medium // 3:30:32 PM
 //        $0.dateFormat = "yyyy-MM-dd HH:mm:ss"
         return $0
     }(DateFormatter())
@@ -112,7 +112,7 @@ extension Visit {
     var durationDateComponents: DateComponents? {
         guard let delta = duration else { return nil }
         let date = Date(timeIntervalSinceReferenceDate: -delta)
-        return Calendar.current().components([.day, .hour, .minute, .second], from: date)
+        return Calendar.current.components([.day, .hour, .minute, .second], from: date)
     }
 }
 
