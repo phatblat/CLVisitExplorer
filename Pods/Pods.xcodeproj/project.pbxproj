@@ -1389,12 +1389,32 @@
 				LastUpgradeCheck = 0700;
 				TargetAttributes = {
 					3EEC8A51B87474916ABC25EDDF78580A = {
+						DevelopmentTeam = MTGSZH8QM4;
+						DevelopmentTeamName = "Log Dash G, LLC";
 						LastSwiftMigration = 0800;
 					};
+					62B8F58FE4ADF763E9159A73EEA2E2C7 = {
+						DevelopmentTeam = MTGSZH8QM4;
+						DevelopmentTeamName = "Log Dash G, LLC";
+					};
+					91DAF7FDF1CF86817989CD0E6E8A915F = {
+						DevelopmentTeam = MTGSZH8QM4;
+						DevelopmentTeamName = "Log Dash G, LLC";
+					};
 					9483E7D0118853EE7247F051B3E45E68 = {
+						DevelopmentTeam = MTGSZH8QM4;
+						DevelopmentTeamName = "Log Dash G, LLC";
 						LastSwiftMigration = 0800;
 					};
 					B1AFE2FB18588DDA533DBDE7790A7894 = {
+						DevelopmentTeam = MTGSZH8QM4;
+						DevelopmentTeamName = "Log Dash G, LLC";
+					};
+					CF8F441CA37E53F17FC4709555E15757 = {
+						DevelopmentTeam = MTGSZH8QM4;
+						DevelopmentTeamName = "Log Dash G, LLC";
+					};
+					EE395D26BCE5218E5E88E00B8AAB0401 = {
 						DevelopmentTeam = MTGSZH8QM4;
 						DevelopmentTeamName = "Log Dash G, LLC";
 					};
