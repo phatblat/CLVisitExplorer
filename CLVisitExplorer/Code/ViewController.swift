@@ -29,7 +29,7 @@ extension ViewController {
         debugPrint("didTapLocationButton, monitoringLocation", monitoringLocation)
 //        toggleLocationMonitoring()
 //        updateTitle(button)
-        PlaceManager().add(CLVisit())
+//        PlaceManager().add(CLVisit())
     }
 
     @IBAction func didTapVisitsButton(_ button: UIButton) {
