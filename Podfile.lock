@@ -3,49 +3,52 @@ PODS:
     - RBQFetchedResultsController (>= 2.0)
     - Realm (>= 0.98)
   - RBQFetchedResultsController (4.0.4):
+    - RBQSafeRealmObject
     - Realm (>= 1.0.0)
-  - Realm (1.0.1):
-    - Realm/Headers (= 1.0.1)
-  - Realm/Headers (1.0.1)
+  - RBQSafeRealmObject (0.7.1):
+    - Realm (>= 0.99.1)
+    - RealmUtilities (>= 0.2.1)
+  - Realm (2.0.3):
+    - Realm/Headers (= 2.0.3)
+  - Realm/Headers (2.0.3)
   - RealmMapView (1.8):
     - ABFRealmMapView (>= 1.8)
     - RealmSwift (>= 0.98)
     - SwiftFetchedResultsController (>= 2.4.3)
-  - RealmSwift (1.0.1):
-    - Realm (= 1.0.1)
+  - RealmSwift (2.0.3):
+    - Realm (= 2.0.3)
+  - RealmUtilities (0.3):
+    - Realm (>= 0.95)
   - SwiftFetchedResultsController (4.0.4):
     - RBQFetchedResultsController (>= 4.0.4)
     - RealmSwift (>= 1.0.0)
 
 DEPENDENCIES:
-  - Realm (from `git@github.com:realm/realm-cocoa.git`, branch `master`)
+  - RBQFetchedResultsController (from `../pods/RBQFetchedResultsController`)
+  - RBQSafeRealmObject (from `../pods/RBQSafeRealmObject`)
+  - Realm
   - RealmMapView
-  - RealmSwift (from `git@github.com:realm/realm-cocoa.git`, branch `master`)
+  - RealmSwift
+  - SwiftFetchedResultsController (from `../pods/RBQFetchedResultsController`)
 
 EXTERNAL SOURCES:
-  Realm:
-    :branch: master
-    :git: git@github.com:realm/realm-cocoa.git
-  RealmSwift:
-    :branch: master
-    :git: git@github.com:realm/realm-cocoa.git
-
-CHECKOUT OPTIONS:
-  Realm:
-    :commit: 8b5b22fae0cabcd2ad579647bec05129e31257b2
-    :git: git@github.com:realm/realm-cocoa.git
-  RealmSwift:
-    :commit: 8b5b22fae0cabcd2ad579647bec05129e31257b2
-    :git: git@github.com:realm/realm-cocoa.git
+  RBQFetchedResultsController:
+    :path: ../pods/RBQFetchedResultsController
+  RBQSafeRealmObject:
+    :path: ../pods/RBQSafeRealmObject
+  SwiftFetchedResultsController:
+    :path: ../pods/RBQFetchedResultsController
 
 SPEC CHECKSUMS:
   ABFRealmMapView: b440d11a5666a4575847a8e02313e57c370a4d38
-  RBQFetchedResultsController: 56494d69fef1e47f9f70c3adcf1317d7b2e3d71c
-  Realm: 2e15e39d35b08abb529e212ed5d8af107b5236c8
+  RBQFetchedResultsController: 925cc6032a73ad88689c10e0745f7a83c6576c86
+  RBQSafeRealmObject: 0a2279cbac50164a4d09f765c7726265746c455a
+  Realm: 5f008bfe3c8c47142eddfc30b8c1584cde22db24
   RealmMapView: e7857bc757f54baf81133b24e91383da292dbf5e
-  RealmSwift: d73ea2af08c3676dbdd5e4b669651a0f492162a4
+  RealmSwift: 5afb451f65b682242f272dbb52d5c6f6e343c980
+  RealmUtilities: cf6552ccc51b951daa79c38fa6e01b3a18c1b7df
   SwiftFetchedResultsController: 4439e56787c27a5407ab5cc4dcab339478f24284
 
-PODFILE CHECKSUM: e2939c92b3c448a558c82810f0c3e54389843c59
+PODFILE CHECKSUM: d3035a9cfc6075c3b22778b2bf32deda9e7061d7
 
-COCOAPODS: 1.0.1
+COCOAPODS: 1.1.1

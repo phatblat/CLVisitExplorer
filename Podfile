@@ -4,8 +4,9 @@ target 'CLVisitExplorer' do
   use_frameworks!
 
   pod 'RealmMapView'
-  pod 'Realm', git: 'git@github.com:realm/realm-cocoa.git', branch: 'master'
-  pod 'RealmSwift', git: 'git@github.com:realm/realm-cocoa.git', branch: 'master'
+
+  pod 'Realm'       # , git: 'git@github.com:realm/realm-cocoa.git', branch: 'master', submodules: true
+  pod 'RealmSwift'  # , git: 'git@github.com:realm/realm-cocoa.git', branch: 'master', submodules: true
 
   target 'CLVisitExplorerTests' do
     inherit! :search_paths
