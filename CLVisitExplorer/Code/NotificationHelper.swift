@@ -16,9 +16,9 @@ class NotificationHelper {
 //        } else {
         let notification = UILocalNotification()
         notification.alertTitle = "Visit"
-        notification.alertBody = String(visit)
+        notification.alertBody = String(describing: visit)
         notification.soundName = UILocalNotificationDefaultSoundName
-        UIApplication.shared().presentLocalNotificationNow(notification)
+        UIApplication.shared.presentLocalNotificationNow(notification)
 //        }
     }
 }

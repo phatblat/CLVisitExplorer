@@ -55,11 +55,11 @@ extension PlaceManager {
         let highLat = coordinate.latitude + delta
         let lowLon = coordinate.longitude - delta
         let highLon = coordinate.longitude + delta
-        let predicate = Predicate(format: "latitude BETWEEN {%f, %f} AND longitude BETWEEN {%f, %f}", lowLat, highLat, lowLon, highLon)
+        let predicate = NSPredicate(format: "latitude BETWEEN {%f, %f} AND longitude BETWEEN {%f, %f}", lowLat, highLat, lowLon, highLon)
 
         do {
             let realm = try Realm()
-            let closeVisits = realm.allObjects(ofType: Visit.self).filter(using: predicate)
+            let closeVisits = realm.objects(Visit.self).filter(predicate)
             return closeVisits
         } catch {
             fatalError("Error querying visits: \(error)")

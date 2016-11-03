@@ -15,9 +15,9 @@ class AppDelegate: UIResponder {
 }
 
 extension AppDelegate: UIApplicationDelegate {
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {
 
-        if let options = launchOptions where options[UIApplicationLaunchOptionsLocationKey] != nil {
+        if let options = launchOptions, options[UIApplicationLaunchOptionsKey.location] != nil {
             debugPrint("App was launched in response to an incoming location event")
         }
         LocationManager.shared.restartLocationServices()
@@ -49,25 +49,24 @@ extension AppDelegate: UIApplicationDelegate {
     }
 }
 
-private extension AppDelegate {
-    private var defaults: UserDefaults { return UserDefaults.standard }
+fileprivate extension AppDelegate {
+    fileprivate var defaults: UserDefaults { return UserDefaults.standard }
 
-    private func printDisplayName() {
+    fileprivate func printDisplayName() {
         var bundle = Bundle.main
         if bundle.bundleURL.pathExtension == "appex" {
             // Peel off two directory levels - MY_APP.app/PlugIns/MY_APP_EXTENSION.appex
-            if let url = try? bundle.bundleURL.deletingLastPathComponent().deletingLastPathComponent() {
-                if let appBundle = Bundle(url: url) {
-                    bundle = appBundle
-                }
+            let url = bundle.bundleURL.deletingLastPathComponent().deletingLastPathComponent()
+            if let appBundle = Bundle(url: url) {
+                bundle = appBundle
             }
         }
         
-        let appDisplayName = bundle.objectForInfoDictionaryKey("CFBundleDisplayName")
+        let appDisplayName = bundle.object(forInfoDictionaryKey: "CFBundleDisplayName")
         print("CFBundleDisplayName: \(appDisplayName)")
     }
 
-    private func configureRealm() {
+    fileprivate func configureRealm() {
         var config = Realm.Configuration.defaultConfiguration
         config.deleteRealmIfMigrationNeeded = true
         Realm.Configuration.defaultConfiguration = config

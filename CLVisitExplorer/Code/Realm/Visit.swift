@@ -34,7 +34,7 @@ class Visit: Object {
     dynamic var note: String?
 
     /// Used to format arrival date and time.
-    private lazy var arrivalDateFormatter: DateFormatter = {
+    fileprivate lazy var arrivalDateFormatter: DateFormatter = {
         $0.dateStyle = .none
         $0.timeStyle = .medium
 //        $0.dateFormat = "yyyy-MM-dd HH:mm:ss"
@@ -42,14 +42,14 @@ class Visit: Object {
     }(DateFormatter())
 
     /// Used to format departure time.
-    private lazy var departureDateFormatter: DateFormatter = {
+    fileprivate lazy var departureDateFormatter: DateFormatter = {
         $0.dateStyle = .none
         $0.timeStyle = .medium // 3:30:32 PM
 //        $0.dateFormat = "yyyy-MM-dd HH:mm:ss"
         return $0
     }(DateFormatter())
 
-    private lazy var durationFormatter: DateComponentsFormatter = {
+    fileprivate lazy var durationFormatter: DateComponentsFormatter = {
 //        NSDateComponentsFormatterUnitsStyle
 //        Short	“1hr 10min”
         $0.unitsStyle = .short
@@ -62,7 +62,7 @@ class Visit: Object {
         id = uniqueId()
     }
     
-    required init(value: AnyObject, schema: RLMSchema) {
+    required init(value: Any, schema: RLMSchema) {
         super.init(value: value, schema: schema)
     }
     
@@ -112,13 +112,13 @@ extension Visit {
     var durationDateComponents: DateComponents? {
         guard let delta = duration else { return nil }
         let date = Date(timeIntervalSinceReferenceDate: -delta)
-        return Calendar.current.components([.day, .hour, .minute, .second], from: date)
+        return Calendar.current.dateComponents([.day, .hour, .minute, .second], from: date)
     }
 }
 
 // MARK: - Private
-private extension Visit {
-    private func uniqueId() -> String {
+fileprivate extension Visit {
+    fileprivate func uniqueId() -> String {
         return UUID().uuidString
     }
 }

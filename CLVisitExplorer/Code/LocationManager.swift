@@ -13,9 +13,9 @@ typealias Coordinate = CLLocationCoordinate2D
 // MARK: - Storage & Init
 class LocationManager: NSObject {
     static let shared = LocationManager()
-    private let clManager = CLLocationManager()
+    fileprivate let clManager = CLLocationManager()
 
-    private var locationServicesEnabled: Bool {
+    fileprivate var locationServicesEnabled: Bool {
         let enabled = CLLocationManager.locationServicesEnabled()
         if !enabled {
             debugPrint("Location services are disabled")
@@ -115,7 +115,7 @@ extension LocationManager: CLLocationManagerDelegate {
         }
     }
 
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: NSError) {
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         debugPrint("didFailWithError", error)
     }
 

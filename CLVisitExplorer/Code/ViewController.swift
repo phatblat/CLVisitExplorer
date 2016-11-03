@@ -12,15 +12,15 @@ import UIKit
 
 // MARK: - Storage
 class ViewController: UIViewController {
-    @IBOutlet private var mapView: MKMapView!
-    @IBOutlet private var locationButton: UIButton!
-    @IBOutlet private var visitsButton: UIButton!
+    @IBOutlet fileprivate var mapView: MKMapView!
+    @IBOutlet fileprivate var locationButton: UIButton!
+    @IBOutlet fileprivate var visitsButton: UIButton!
 
     /// Indicates whether location updates are currently being delivered.
-    private var monitoringLocation: Bool { return LocationManager.shared.monitoringLocation }
+    fileprivate var monitoringLocation: Bool { return LocationManager.shared.monitoringLocation }
 
     /// Indicates whether visits are currently being delivered.
-    private var monitoringVisits: Bool { return LocationManager.shared.monitoringVisits }
+    fileprivate var monitoringVisits: Bool { return LocationManager.shared.monitoringVisits }
 }
 
 // MARK: - IBAction
@@ -67,15 +67,15 @@ extension ViewController: MKMapViewDelegate {
 }
 
 // MARK: - Private
-private extension ViewController {
+fileprivate extension ViewController {
     /// Starts or stops location updates depending on the current monitoringLocation value.
-    private func toggleLocationMonitoring() {
+    fileprivate func toggleLocationMonitoring() {
         !monitoringLocation
             ? LocationManager.shared.startLocationUpdates()
             : LocationManager.shared.stopLocationUpdates()
     }
 
-    private func toggleVisitMonitoring() {
+    fileprivate func toggleVisitMonitoring() {
         !monitoringVisits
             ? LocationManager.shared.startVisitUpdates()
             : LocationManager.shared.stopVisitUpdates()
@@ -84,7 +84,7 @@ private extension ViewController {
     /// Updates the button title based on the state of the relevant service.
     ///
     /// - parameter button: Button to update.
-    private func updateTitle(_ button: UIButton) {
+    fileprivate func updateTitle(_ button: UIButton) {
         var title: String
 
         switch button {
@@ -103,7 +103,7 @@ private extension ViewController {
         button.setTitle(title, for: [])
     }
 
-    private func configureMapView() {
+    fileprivate func configureMapView() {
         mapView.showsUserLocation = true
 //        mapView.userTrackingMode = .follow
 
