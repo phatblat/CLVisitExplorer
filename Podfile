@@ -4,11 +4,13 @@ target 'CLVisitExplorer' do
   use_frameworks!
 
   # Swift 3 conversions
+  pod 'SafeRealmObject', git: 'git@github.com:phatblat/RBQSafeRealmObject.git', branch: 'swift-3'
+    # path: '../pods/RBQSafeRealmObject'
   pod 'RBQSafeRealmObject', git: 'git@github.com:phatblat/RBQSafeRealmObject.git', branch: 'swift-3'
     # path: '../pods/RBQSafeRealmObject'
-  pod 'SwiftFetchedResultsController', git: 'git@github.com:phatblat/RBQFetchedResultsController.git', branch: 'swift-3'
-    # path: '../pods/RBQFetchedResultsController'
   pod 'RBQFetchedResultsController', git: 'git@github.com:phatblat/RBQFetchedResultsController.git', branch: 'swift-3'
+    # path: '../pods/RBQFetchedResultsController'
+  pod 'SwiftFetchedResultsController', git: 'git@github.com:phatblat/RBQFetchedResultsController.git', branch: 'swift-3'
     # path: '../pods/RBQFetchedResultsController'
 
   pod 'RealmMapView'
@@ -25,5 +27,4 @@ target 'CLVisitExplorer' do
     inherit! :search_paths
     # Pods for testing
   end
-
 end

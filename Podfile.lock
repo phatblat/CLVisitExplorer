@@ -19,9 +19,13 @@ PODS:
     - Realm (= 2.0.3)
   - RealmUtilities (0.3):
     - Realm (>= 0.95)
+  - SafeRealmObject (0.7.1):
+    - RealmSwift (>= 0.99.1)
+    - RealmUtilities (>= 0.2.1)
   - SwiftFetchedResultsController (4.0.4):
     - RBQFetchedResultsController (>= 4.0.4)
     - RealmSwift (>= 1.0.0)
+    - SafeRealmObject
 
 DEPENDENCIES:
   - RBQFetchedResultsController (from `../pods/RBQFetchedResultsController`)
@@ -29,12 +33,15 @@ DEPENDENCIES:
   - Realm
   - RealmMapView
   - RealmSwift
+  - SafeRealmObject (from `../pods/RBQSafeRealmObject`)
   - SwiftFetchedResultsController (from `../pods/RBQFetchedResultsController`)
 
 EXTERNAL SOURCES:
   RBQFetchedResultsController:
     :path: ../pods/RBQFetchedResultsController
   RBQSafeRealmObject:
+    :path: ../pods/RBQSafeRealmObject
+  SafeRealmObject:
     :path: ../pods/RBQSafeRealmObject
   SwiftFetchedResultsController:
     :path: ../pods/RBQFetchedResultsController
@@ -47,8 +54,9 @@ SPEC CHECKSUMS:
   RealmMapView: e7857bc757f54baf81133b24e91383da292dbf5e
   RealmSwift: 5afb451f65b682242f272dbb52d5c6f6e343c980
   RealmUtilities: cf6552ccc51b951daa79c38fa6e01b3a18c1b7df
-  SwiftFetchedResultsController: 4439e56787c27a5407ab5cc4dcab339478f24284
+  SafeRealmObject: 3eff5bd20610cc44377c9dbe75f6e340dbeb7e00
+  SwiftFetchedResultsController: 6023eda68584af06f4e461a92499cceb731a49ce
 
-PODFILE CHECKSUM: d3035a9cfc6075c3b22778b2bf32deda9e7061d7
+PODFILE CHECKSUM: 44062684b91f5b7c1aa7fb808e19c2740afc8eda
 
 COCOAPODS: 1.1.1
