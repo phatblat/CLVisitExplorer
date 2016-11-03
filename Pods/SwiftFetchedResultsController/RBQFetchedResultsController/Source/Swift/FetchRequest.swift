@@ -24,7 +24,7 @@ public class FetchRequest<T: Object> {
     
     :returns: A new instance of FetchRequest
     */
-    public init(realm: Realm, predicate: Predicate) {
+    public init(realm: Realm, predicate: NSPredicate) {
         let entityName = T.className()
         
         self.realmConfiguration = realm.configuration
@@ -54,7 +54,7 @@ public class FetchRequest<T: Object> {
     /// Predicate supported by Realm
     ///
     /// http://realm.io/docs/cocoa/0.89.2/#querying-with-predicates
-    public var predicate: Predicate? {
+    public var predicate: NSPredicate? {
         get {
             return self.rbqFetchRequest.predicate
         }
@@ -106,17 +106,17 @@ public class FetchRequest<T: Object> {
     public func fetchObjects() -> Results<T> {
 
 //        var fetchResults = self.realm.objects(T)
-        var fetchResults = self.realm.allObjects(ofType: T.self)
+        var fetchResults = self.realm.objects(T.self)
 
         // If we have a predicate use it
         
         if let predicate = self.predicate {
-            fetchResults = fetchResults.filter(using: predicate)
+            fetchResults = fetchResults.filter(predicate)
         }
         
         // If we have sort descriptors then use them
         if (self.sortDescriptors.count > 0) {
-            fetchResults = fetchResults.sorted(with: self.sortDescriptors)
+            fetchResults = fetchResults.sorted(by: self.sortDescriptors)
         }
         
         return fetchResults

@@ -20,6 +20,7 @@ PODS:
   - RealmUtilities (0.3):
     - Realm (>= 0.95)
   - SafeRealmObject (0.7.1):
+    - RBQSafeRealmObject
     - RealmSwift (>= 0.99.1)
     - RealmUtilities (>= 0.2.1)
   - SwiftFetchedResultsController (4.0.4):
@@ -28,23 +29,54 @@ PODS:
     - SafeRealmObject
 
 DEPENDENCIES:
-  - RBQFetchedResultsController (from `../pods/RBQFetchedResultsController`)
-  - RBQSafeRealmObject (from `../pods/RBQSafeRealmObject`)
+  - ABFRealmMapView (from `git@github.com:phatblat/ABFRealmMapView.git`, branch `swift-3`)
+  - RBQFetchedResultsController (from `git@github.com:phatblat/RBQFetchedResultsController.git`, branch `swift-3`)
+  - RBQSafeRealmObject (from `git@github.com:phatblat/RBQSafeRealmObject.git`, branch `swift-3`)
   - Realm
-  - RealmMapView
+  - RealmMapView (from `git@github.com:phatblat/ABFRealmMapView.git`, branch `swift-3`)
   - RealmSwift
-  - SafeRealmObject (from `../pods/RBQSafeRealmObject`)
-  - SwiftFetchedResultsController (from `../pods/RBQFetchedResultsController`)
+  - SafeRealmObject (from `git@github.com:phatblat/RBQSafeRealmObject.git`, branch `swift-3`)
+  - SwiftFetchedResultsController (from `git@github.com:phatblat/RBQFetchedResultsController.git`, branch `swift-3`)
 
 EXTERNAL SOURCES:
+  ABFRealmMapView:
+    :branch: swift-3
+    :git: git@github.com:phatblat/ABFRealmMapView.git
   RBQFetchedResultsController:
-    :path: ../pods/RBQFetchedResultsController
+    :branch: swift-3
+    :git: git@github.com:phatblat/RBQFetchedResultsController.git
   RBQSafeRealmObject:
-    :path: ../pods/RBQSafeRealmObject
+    :branch: swift-3
+    :git: git@github.com:phatblat/RBQSafeRealmObject.git
+  RealmMapView:
+    :branch: swift-3
+    :git: git@github.com:phatblat/ABFRealmMapView.git
   SafeRealmObject:
-    :path: ../pods/RBQSafeRealmObject
+    :branch: swift-3
+    :git: git@github.com:phatblat/RBQSafeRealmObject.git
   SwiftFetchedResultsController:
-    :path: ../pods/RBQFetchedResultsController
+    :branch: swift-3
+    :git: git@github.com:phatblat/RBQFetchedResultsController.git
+
+CHECKOUT OPTIONS:
+  ABFRealmMapView:
+    :commit: eec7affeca254e537c020f1ffae7fe526b757b8e
+    :git: git@github.com:phatblat/ABFRealmMapView.git
+  RBQFetchedResultsController:
+    :commit: 0a422feb38b906514004df73ae580942a54da47d
+    :git: git@github.com:phatblat/RBQFetchedResultsController.git
+  RBQSafeRealmObject:
+    :commit: 1b60574a34c9b9f10b16e62a863cfebd8e0dba9c
+    :git: git@github.com:phatblat/RBQSafeRealmObject.git
+  RealmMapView:
+    :commit: eec7affeca254e537c020f1ffae7fe526b757b8e
+    :git: git@github.com:phatblat/ABFRealmMapView.git
+  SafeRealmObject:
+    :commit: 1b60574a34c9b9f10b16e62a863cfebd8e0dba9c
+    :git: git@github.com:phatblat/RBQSafeRealmObject.git
+  SwiftFetchedResultsController:
+    :commit: 0a422feb38b906514004df73ae580942a54da47d
+    :git: git@github.com:phatblat/RBQFetchedResultsController.git
 
 SPEC CHECKSUMS:
   ABFRealmMapView: b440d11a5666a4575847a8e02313e57c370a4d38
@@ -54,9 +86,9 @@ SPEC CHECKSUMS:
   RealmMapView: e7857bc757f54baf81133b24e91383da292dbf5e
   RealmSwift: 5afb451f65b682242f272dbb52d5c6f6e343c980
   RealmUtilities: cf6552ccc51b951daa79c38fa6e01b3a18c1b7df
-  SafeRealmObject: 3eff5bd20610cc44377c9dbe75f6e340dbeb7e00
+  SafeRealmObject: da5738bf3da20a3bed240b7e2a16581f0bd9dd42
   SwiftFetchedResultsController: 6023eda68584af06f4e461a92499cceb731a49ce
 
-PODFILE CHECKSUM: 44062684b91f5b7c1aa7fb808e19c2740afc8eda
+PODFILE CHECKSUM: b9bc3b831c4a40cfde4afbf9296a89f071bfa6aa
 
 COCOAPODS: 1.1.1

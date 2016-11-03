@@ -13,7 +13,10 @@ target 'CLVisitExplorer' do
   pod 'SwiftFetchedResultsController', git: 'git@github.com:phatblat/RBQFetchedResultsController.git', branch: 'swift-3'
     # path: '../pods/RBQFetchedResultsController'
 
-  pod 'RealmMapView'
+  pod 'RealmMapView', git: 'git@github.com:phatblat/ABFRealmMapView.git', branch: 'swift-3'
+    # path: '../pods/ABFRealmMapView'
+  pod 'ABFRealmMapView', git: 'git@github.com:phatblat/ABFRealmMapView.git', branch: 'swift-3'
+    # path: '../pods/ABFRealmMapView'
 
   pod 'Realm'       # , git: 'git@github.com:realm/realm-cocoa.git', branch: 'master', submodules: true
   pod 'RealmSwift'  # , git: 'git@github.com:realm/realm-cocoa.git', branch: 'master', submodules: true

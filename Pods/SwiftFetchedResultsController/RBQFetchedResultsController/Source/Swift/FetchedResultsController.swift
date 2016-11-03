@@ -6,6 +6,7 @@
 //  Copyright (c) 2015 Adam Fish. All rights reserved.
 //
 
+import SafeRealmObject
 import Realm
 import RealmSwift
 
@@ -29,7 +30,7 @@ public class FetchResultsSectionInfo<T: Object> {
     public var objects: Results<T> {
         
         if self.sectionNameKeyPath != nil {
-            return self.fetchRequest.fetchObjects().filter(using: "%K == %@", self.sectionNameKeyPath!, self.rbqFetchedResultsSectionInfo.name)
+            return self.fetchRequest.fetchObjects().filter("%K == %@", self.sectionNameKeyPath!, self.rbqFetchedResultsSectionInfo.name)
         }
         
         return self.fetchRequest.fetchObjects()
@@ -90,7 +91,7 @@ public protocol FetchedResultsControllerDelegate: class {
     
 //    func controllerDidChangeObject<T: Object>(_ controller: FetchedResultsController<T>, anObject: SafeObject<T>, atIndexPath indexPath: IndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: IndexPath?)
 
-    func controller<T: Object>(_ controller: FetchedResultsController<T>, didChangeObject anObject: SafeObject<T>, atIndexPath indexPath: IndexPath, forChangeType type: NSFetchedResultsChangeType, newIndexPath newIndexPath: IndexPath)
+    func controller<T: Object>(_ controller: FetchedResultsController<T>, didChangeObject anObject: SafeObject<T>, atIndexPath indexPath: IndexPath, forChangeType type: NSFetchedResultsChangeType, newIndexPath: IndexPath)
     
     /**
     The fetched results controller reports changes to its section before changes to the fetched result objects.
@@ -173,7 +174,7 @@ public class FetchedResultsController<T: Object> {
         
         let allPaths = RBQFetchedResultsController.allCacheRealmPaths()
         
-        for aPath: AnyObject in allPaths {
+        for aPath in allPaths {
             
             if let path = aPath as? String {
                 
@@ -328,9 +329,9 @@ public class FetchedResultsController<T: Object> {
     :returns: Object
     */
     public func objectAtIndexPath(_ indexPath: IndexPath) -> T? {
-        
-        if let rlmObject: AnyObject = self.rbqFetchedResultsController.object(at: indexPath) {
-            
+
+        if let rlmObject = self.rbqFetchedResultsController.object(at: indexPath) {
+
             return unsafeBitCast(rlmObject, to: T.self)
         }
         
@@ -388,7 +389,7 @@ extension FetchedResultsController: DelegateProxyProtocol {
     }
     
     func controller(_ controller: RBQFetchedResultsController!, didChangeObject anObject: RBQSafeRealmObject!, atIndexPath indexPath: IndexPath!, forChangeType type: NSFetchedResultsChangeType, newIndexPath: IndexPath!) {
-        
+    
         if let delegate = self.delegate {
             
             let safeObject = SafeObject<T>(rbqSafeRealmObject: anObject)
@@ -398,7 +399,7 @@ extension FetchedResultsController: DelegateProxyProtocol {
     }
     
     func controller(_ controller: RBQFetchedResultsController!, didChangeSection section: RBQFetchedResultsSectionInfo!, atIndex sectionIndex: UInt, forChangeType type: NSFetchedResultsChangeType) {
-        
+    
         if let delegate = self.delegate {
             
             let sectionInfo = FetchResultsSectionInfo<T>(rbqFetchedResultsSectionInfo: section, fetchRequest: self.fetchRequest, sectionNameKeyPath: self.sectionNameKeyPath)
@@ -409,7 +410,7 @@ extension FetchedResultsController: DelegateProxyProtocol {
     
     func controllerDidChangeContent(_ controller: RBQFetchedResultsController!) {
         if let delegate = self.delegate {
-            
+
             delegate.controllerDidChangeContent(self)
         }
     }
@@ -454,7 +455,7 @@ internal class DelegateProxy: Object, RBQFetchedResultsControllerDelegate {
         fatalError("init() has not been implemented")
     }
 
-    required init(value: AnyObject, schema: RLMSchema) {
+    required init(value: Any, schema: RLMSchema) {
         fatalError("init(value:schema:) has not been implemented")
     }
 
@@ -471,7 +472,6 @@ internal class DelegateProxy: Object, RBQFetchedResultsControllerDelegate {
     @objc func controllerWillChangeContent(_ controller: RBQFetchedResultsController) {
         self.delegate?.controllerWillChangeContent(controller)
     }
-
 
 //    func controllerDidChangeObject<T: Object>(_ controller: FetchedResultsController<T>, anObject: SafeObject<T>, indexPath: NSIndexPath?, changeType: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?)
 

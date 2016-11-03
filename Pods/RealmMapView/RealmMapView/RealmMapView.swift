@@ -6,6 +6,7 @@
 //  Copyright © 2015 Adam Fish. All rights reserved.
 //
 
+import ABFRealmMapView
 import MapKit
 import RealmSwift
 
@@ -106,7 +107,7 @@ public class RealmMapView: MKMapView {
     
     /// Use this property to filter items found by the map. This predicate will be included, via AND,
     /// along with the generated predicate for the location bounding box.
-    public var basePredicate: Predicate?
+    public var basePredicate: NSPredicate?
     
     // MARK: Functions
     
@@ -125,7 +126,7 @@ public class RealmMapView: MKMapView {
             let fetchRequest = ABFLocationFetchRequest(entityName: self.entityName!, in: rlmRealm, latitudeKeyPath: self.latitudeKeyPath!, longitudeKeyPath: self.longitudeKeyPath!, for: currentRegion)
             
             if let basePred = self.basePredicate, let pred = fetchRequest.predicate {
-                let compPred = CompoundPredicate(andPredicateWithSubpredicates: [pred, basePred])
+                let compPred = NSCompoundPredicate(andPredicateWithSubpredicates: [pred, basePred])
                 fetchRequest.predicate = compPred
             }
             
@@ -191,7 +192,7 @@ public class RealmMapView: MKMapView {
     // MARK: Private
     private var internalConfiguration: Realm.Configuration?
     
-    private let ABFAnnotationViewReuseId = "ABFAnnotationViewReuseId"
+    fileprivate let ABFAnnotationViewReuseId = "ABFAnnotationViewReuseId"
     
     private let mapQueue: OperationQueue = {
         let queue = OperationQueue()
@@ -200,7 +201,7 @@ public class RealmMapView: MKMapView {
         return queue
     }()
     
-    weak private var externalDelegate: MKMapViewDelegate?
+    weak fileprivate var externalDelegate: MKMapViewDelegate?
     
     private func addAnnotationsToMapView(_ annotations: Set<ABFAnnotation>) {
         let currentAnnotations = NSMutableSet(array: self.annotations)
@@ -247,12 +248,12 @@ public class RealmMapView: MKMapView {
         })
     }
     
-    private func addAnimation(_ view: UIView) {
-        view.transform = CGAffineTransform.identity.scaleBy(x: 0.05, y: 0.05)
+    fileprivate func addAnimation(_ view: UIView) {
+        view.transform = CGAffineTransform.identity.scaledBy(x: 0.05, y: 0.05)
         
         UIView.animate(withDuration: 0.6, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 1, options: UIViewAnimationOptions(), animations: { () -> Void in
             
-                view.transform = CGAffineTransform.identity.scaleBy(x: 1.0, y: 1.0)
+                view.transform = CGAffineTransform.identity.scaledBy(x: 1.0, y: 1.0)
             
             }, completion: nil)
     }
@@ -280,7 +281,7 @@ public class RealmMapView: MKMapView {
         let rlmConfiguration = RLMRealmConfiguration()
         
         if (configuration.fileURL != nil) {
-            rlmConfiguration.fileURL = configuration.fileURL!
+            rlmConfiguration.fileURL = configuration.fileURL
         }
         
         if (configuration.inMemoryIdentifier != nil) {
@@ -321,7 +322,7 @@ extension RealmMapView: MKMapViewDelegate {
         self.externalDelegate?.mapViewDidFinishLoadingMap?(mapView)
     }
     
-    public func mapViewDidFailLoadingMap(_ mapView: MKMapView, withError error: NSError) {
+    public func mapViewDidFailLoadingMap(_ mapView: MKMapView, withError error: Error) {
         self.externalDelegate?.mapViewDidFailLoadingMap?(mapView, withError: error)
     }
     
@@ -392,7 +393,7 @@ extension RealmMapView: MKMapViewDelegate {
         self.externalDelegate?.mapView?(mapView, didUpdate: userLocation)
     }
     
-    public func mapView(_ mapView: MKMapView, didFailToLocateUserWithError error: NSError) {
+    public func mapView(_ mapView: MKMapView, didFailToLocateUserWithError error: Error) {
         self.externalDelegate?.mapView?(mapView, didFailToLocateUserWithError: error)
     }
     
